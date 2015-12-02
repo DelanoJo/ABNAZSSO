@@ -1,0 +1,49 @@
+<apex:page standardController="M_Order_sigcap_Header__c" extensions="HistoricalReceiptPrintingCon" sidebar="false">
+ 
+    <!--  display messages  -->
+    <apex:messages />
+    
+    <!-- page title -->
+    <apex:sectionHeader title="View Historical Receipts" subtitle="{!M_Order_sigcap_Header__c.Name}" description=""/>
+    
+    
+    <!-- link back to Order -->
+    <apex:outputlink value="/{!M_Order_sigcap_Header__c.Id}">{!$ObjectType.M_Order_sigcap_Header__c.Label}: {!M_Order_sigcap_Header__c.Name}</apex:outputlink>
+    
+     <!-- main panel -->
+    <apex:outputPanel id="mainPanel">
+        <apex:pageBlock title="Historical Receipts" id="HistoricalReceiptsPageBlock">
+            <apex:pageBlockButtons location="top">
+                <apex:form >
+                    <apex:commandButton value="{!$Label.buzz_retail__close}" action="{!close}" />
+                </apex:form>
+            </apex:pageBlockButtons>
+            
+     
+            <buzz_retail:fastGrid componentId="HRP"
+                    nameSpace="{!nameSpace}"
+                    objectName="{!$ObjectType.M_Historical_Receipt_Printings__c.Name}"
+                    fieldSet="{!$ObjectType.M_Historical_Receipt_Printings__c.FieldSets.HRPList}"
+                    fieldList="{!$ObjectType.M_Historical_Receipt_Printings__c.Fields}"
+                    height="200"
+                    widthPercent="100"
+                    dataLoadFunc="jsLoadHRP"
+                    allowCreate="false"
+                    allowDelete="false"
+                    allowUpdate="false"
+                    select=""
+                    DoNotWriteToDB="true"
+                    allowShortHeader="false"
+                    autoExpandColumn=""
+                    startHidden="false"/>
+          
+        </apex:pageBlock>
+    </apex:outputPanel>  
+     <script type="text/javascript">
+        function jsLoadHRP(handler) {
+                 HistoricalReceiptPrintingCon.loadHRP('{!M_Order_sigcap_Header__c.Id}', handler);
+        
+        }
+    </script> 
+  
+</apex:page>

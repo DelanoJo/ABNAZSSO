@@ -1,0 +1,1734 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "EQ", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 3
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "NEQ", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 4
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LT", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 5
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "LTE", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 6
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "GT", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 7
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "GTE", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 8
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "CNTN", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 9
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "NOT_CNTN", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 10
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "IN_IN", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 11
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "IN_NOTIN", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 12
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "OPERATOR_INDEX", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 14
+            }, 
+            "type": "Map"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "Logical", 
+            "tableDeclaration": {
+                "type": "Logical", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 19, 
+                    "line": 26
+                }, 
+                "name": "Logical"
+            }, 
+            "key": null, 
+            "variables": [], 
+            "id": null, 
+            "methods": []
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "testValueCache", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 32
+                    }, 
+                    "type": "Map"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "ININ", 
+            "tableDeclaration": {
+                "type": "ININ", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 31
+                }, 
+                "name": "ININ"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 34
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 34
+                    }, 
+                    "name": "testValue"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 49
+                    }, 
+                    "name": "fv"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 50
+                    }, 
+                    "name": "tv"
+                }, 
+                {
+                    "type": "Value", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 52
+                    }, 
+                    "name": "v"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 34
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 75
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "i", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 81
+                    }, 
+                    "type": "ININ"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "NotIn", 
+            "tableDeclaration": {
+                "type": "NotIn", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 80
+                }, 
+                "name": "NotIn"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 82
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 82
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 82
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 86
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "testValueCache", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 29, 
+                        "line": 92
+                    }, 
+                    "type": "Map"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "Equals", 
+            "tableDeclaration": {
+                "type": "Equals", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 91
+                }, 
+                "name": "Equals"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 94
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 94
+                    }, 
+                    "name": "testValue"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 109
+                    }, 
+                    "name": "fv"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 110
+                    }, 
+                    "name": "tv"
+                }, 
+                {
+                    "type": "Value", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 112
+                    }, 
+                    "name": "v"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 94
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 135
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "equals", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 141
+                    }, 
+                    "type": "Equals"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "NotEquals", 
+            "tableDeclaration": {
+                "type": "NotEquals", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 140
+                }, 
+                "name": "NotEquals"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 142
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 142
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 142
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 146
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "Contains", 
+            "tableDeclaration": {
+                "type": "Contains", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 151
+                }, 
+                "name": "Contains"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 152
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 152
+                    }, 
+                    "name": "testValue"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 11, 
+                        "line": 163
+                    }, 
+                    "name": "fv"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 11, 
+                        "line": 164
+                    }, 
+                    "name": "tv"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 166
+                    }, 
+                    "name": "s"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 152
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 175
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "contains", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 12, 
+                        "line": 181
+                    }, 
+                    "type": "Contains"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "NotContains", 
+            "tableDeclaration": {
+                "type": "NotContains", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 180
+                }, 
+                "name": "NotContains"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 182
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 182
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 182
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 186
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "GreaterThan", 
+            "tableDeclaration": {
+                "type": "GreaterThan", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 191
+                }, 
+                "name": "GreaterThan"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 192
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 192
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 192
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 206
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "GreaterThanEquals", 
+            "tableDeclaration": {
+                "type": "GreaterThanEquals", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 211
+                }, 
+                "name": "GreaterThanEquals"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 212
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 212
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 212
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 226
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "LessThan", 
+            "tableDeclaration": {
+                "type": "LessThan", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 231
+                }, 
+                "name": "LessThan"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 232
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 232
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 232
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 246
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [
+                "Logical"
+            ], 
+            "constructors": [], 
+            "namespace": null, 
+            "name": "LessThanEquals", 
+            "tableDeclaration": {
+                "type": "LessThanEquals", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 15, 
+                    "line": 251
+                }, 
+                "name": "LessThanEquals"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 34, 
+                        "line": 252
+                    }, 
+                    "name": "fieldValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 53, 
+                        "line": 252
+                    }, 
+                    "name": "testValue"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "evaluate", 
+                    "parameters": [
+                        {
+                            "type": "Object", 
+                            "name": "fieldValue"
+                        }, 
+                        {
+                            "type": "Object", 
+                            "name": "testValue"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 252
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getSymbol", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 17, 
+                        "line": 266
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "value", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 18, 
+                        "line": 272
+                    }, 
+                    "type": "String"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "Value", 
+                    "parameters": [], 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 11, 
+                        "line": 274
+                    }, 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "Value", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "value"
+                        }
+                    ], 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 11, 
+                        "line": 277
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "Value", 
+            "tableDeclaration": {
+                "type": "Value", 
+                "modifiers": [
+                    "private", 
+                    "virtual"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 24, 
+                    "line": 271
+                }, 
+                "name": "Value"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 24, 
+                        "line": 277
+                    }, 
+                    "name": "value"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 40, 
+                        "line": 284
+                    }, 
+                    "name": "value"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "virtual", 
+                        "public"
+                    ], 
+                    "name": "equals", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "value"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 26, 
+                        "line": 284
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }
+            ]
+        }, 
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "values", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 23, 
+                        "line": 290
+                    }, 
+                    "type": "Set"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "MultipleValue", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "value"
+                        }
+                    ], 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 11, 
+                        "line": 292
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "MultipleValue", 
+            "tableDeclaration": {
+                "type": "MultipleValue", 
+                "modifiers": [
+                    "private"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 16, 
+                    "line": 289
+                }, 
+                "name": "MultipleValue"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 32, 
+                        "line": 292
+                    }, 
+                    "name": "value"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 294
+                    }, 
+                    "name": "v"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 41, 
+                        "line": 299
+                    }, 
+                    "name": "value"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public", 
+                        "override"
+                    ], 
+                    "name": "equals", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "value"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 27, 
+                        "line": 299
+                    }, 
+                    "returnType": "Boolean", 
+                    "type": null
+                }
+            ]
+        }
+    ], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "Operators", 
+    "tableDeclaration": {
+        "type": "Operators", 
+        "modifiers": [
+            "public", 
+            "without sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 30, 
+            "line": 1
+        }, 
+        "name": "Operators"
+    }, 
+    "key": "01p55000000DcAPAA0", 
+    "variables": [
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 43, 
+                "line": 22
+            }, 
+            "name": "key"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 27
+            }, 
+            "name": "leftValue"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 27
+            }, 
+            "name": "rightValue"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 55, 
+                "line": 312
+            }, 
+            "name": "value"
+        }, 
+        {
+            "type": "Decimal", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 313
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 49, 
+                "line": 329
+            }, 
+            "name": "value"
+        }, 
+        {
+            "type": "Date", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 330
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "Object", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 57, 
+                "line": 346
+            }, 
+            "name": "value"
+        }, 
+        {
+            "type": "Datetime", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 347
+            }, 
+            "name": "result"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 39, 
+                "line": 355
+            }, 
+            "name": "value"
+        }
+    ], 
+    "id": "01p55000000DcAPAA0", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getInstance", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "key"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 22
+            }, 
+            "returnType": "Logical", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public", 
+                "abstract"
+            ], 
+            "name": "evaluate", 
+            "parameters": [
+                {
+                    "type": "Object", 
+                    "name": "leftValue"
+                }, 
+                {
+                    "type": "Object", 
+                    "name": "rightValue"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 27
+            }, 
+            "returnType": "Boolean", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public", 
+                "abstract"
+            ], 
+            "name": "getSymbol", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 10, 
+                "line": 28
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "toDecimalSkipNullCheck", 
+            "parameters": [
+                {
+                    "type": "Object", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 312
+            }, 
+            "returnType": "Decimal", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "toDateSkipNullCheck", 
+            "parameters": [
+                {
+                    "type": "Object", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 329
+            }, 
+            "returnType": "Date", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "toDateTimeSkipNullCheck", 
+            "parameters": [
+                {
+                    "type": "Object", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 346
+            }, 
+            "returnType": "Datetime", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "valueFor", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 355
+            }, 
+            "returnType": "Value", 
+            "type": null
+        }
+    ]
+}

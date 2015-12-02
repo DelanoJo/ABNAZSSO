@@ -1,0 +1,110 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name:
+ * Description: T-433463 Step 1 for Space Plan Reset Wizard
+ * Created Date: 17 Sept 2015
+ * Created By: Poonam Varyani (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+-->
+<apex:page standardController="Space_Plan_Reset__c" extensions="SpacePlanResetExtension" tabStyle="New_Reset_Project_Wizard__tab" title="Space Plan Reset">
+<style>
+.optionsClass {
+  width: 50%;
+}
+select option:nth-child(odd) {
+  background-color: aliceblue;
+}
+select option:nth-child(even) {
+  background-color: white;
+}
+.btnPagination{
+  margin: 4px !important; 
+  text-decoration: none !important;
+  font-size:10pt !important;
+  background-image:none !important;
+  background-color: orange !important;
+  color: white !important;
+}
+.btnDisabled{
+  margin: 4px !important; 
+  text-decoration: none !important;
+  font-size:10pt !important;
+  background-image:none !important;
+  background-color: lightgray !important;
+  color: white !important;
+}
+</style>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+  $j = jQuery.noConflict();
+  //$j('select option:even').css({'background-color': 'aliceblue'});
+  function searchResult(val){
+    $j('[id*="result"]').find("option").each(function() {
+      if($j(this).text() != null) {
+        var searchedVal = $j(this).text().toLowerCase();
+        if(val==null || val=='' || searchedVal.indexOf(val.toLowerCase()) >= 0) {
+            $j(this).show(); 
+          }
+          else {
+            $j(this).hide();
+          }
+      }
+      });
+      $j('select option:visible:even').css({'background-color': 'aliceblue'});
+      $j('select option:visible:odd').css({'background-color': 'white'});
+  }
+
+  function enableNext(){
+    $j('input[type="submit"][value="Next"]')
+      .removeProp('disabled')
+      .removeClass('btnDisabled')
+      .addClass('btnPagination');
+  }
+  $j(function() {
+    if($j( '.optionsClass option:selected' ).text()==''){
+      $j('input[type="submit"][value="Next"]')
+        .prop('disabled',true);
+    } else {
+      enableNext();
+    }
+  }); 
+</script>
+<apex:sectionHeader title="Space Plan Reset" subtitle="Create New Space Plan" />
+<apex:form >
+  <apex:pageMessages id="pgMessages"/>
+  <apex:pageBlock title="Search for Space Plan Reset Template">
+<!--     <apex:pageBlockButtons location="bottom" style="padding-left: 27%;" styleClass="btnPagination">
+      <apex:commandButton action="{!step2}" value="Next"/>
+    </apex:pageBlockButtons> -->
+    <apex:pageBlockSection columns="1">
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Template Name" for="search"/>
+        <apex:inputText value="{!searchVal}" id="search" html-placeholder="Search for Template" styleClass="optionsClass" onkeyup="searchResult(this.value)"/>
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem />
+      <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Results" for="result"/>
+        <apex:selectList size="10" value="{!selection}" id="result" styleClass="optionsClass" onchange="enableNext();">
+          <apex:selectOptions value="{!Items}"/>
+        </apex:selectList>
+      </apex:pageBlockSectionItem>
+      <!-- <apex:commandButton action="{!step2}" value="Next"/> -->
+    </apex:pageBlockSection>
+
+    <apex:pageBlockSection columns="2" id="footer" > 
+      <apex:pageBlockSectionItem >
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem >
+          <apex:outputPanel style="text-align:right" layout="block">
+              <apex:commandButton value="Cancel" styleClass="btnPagination" action="{!cancel}" />
+              <apex:commandButton value="Next" styleClass="btnDisabled" action="{!step2}"/>
+          </apex:outputPanel>
+      </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

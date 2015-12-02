@@ -1,0 +1,27 @@
+<apex:component controller="sortOrderDetailsCon" access="global">
+    <apex:attribute name="orderId" assignTo="{!orderIdStr}" type="String" description="order id for which the order details need to be sorted"/>
+
+      <table border="0" >
+        <tr>
+           <th>SAP Material Name</th>
+           <th>UPC Code</th>
+           <th>Code SAP</th>
+           <th>Qty Ordered</th>
+           <th>PTR</th>
+           <th>Item Net Amount</th>
+           <th>24 Bottle eqv</th>
+        </tr>
+        <apex:repeat var="ordDet" value="{!SortedOrderDetails}">
+          <tr>
+            <td>{!ordDet.lboc_SAP_Material_Name__c}</td>
+			<td>{!ordDet.M_Product_Name__r.buzz_retail__UPC_Code__c}</td>
+			<td>{!ordDet.M_UPC_Code__c}</td>
+            <td>{!ordDet.M_Qty_Ordered__c}</td>
+            <td>{!ordDet.M_Item_Price__c}</td>
+            <td>{!ordDet.M_Item_Net_Amount__c}</td>
+            <td>{!ordDet.M_Convert_To_Eaches__c}</td>
+          </tr>
+        </apex:repeat>                
+      </table>
+    
+</apex:component>

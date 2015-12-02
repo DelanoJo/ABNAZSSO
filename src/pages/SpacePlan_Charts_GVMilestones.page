@@ -1,0 +1,62 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name: SpacePlan_Charts_FVMilestones
+ * Description: [T-433601]
+ * Created Date: 19th Sep 2015
+ * Created By: Parul Gupta (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+-->
+<apex:page standardController="Space_Plan_Reset__c" sidebar="false">
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <apex:outputPanel >
+    <table class="detailList" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr><td width="50%">    
+    <div id="chart_div0"></div>
+    </td><td width="50%">
+    <div id="chart_div1"></div>
+    </td></tr>
+    <tr><td>    
+    <div id="chart_div2"></div>
+    </td><td>
+    <div id="chart_div3"></div>
+    </td></tr>    
+    </table>
+    <script>
+    var data;    
+    google.load("visualization", "1", {packages:["corechart"]});
+    
+      function drawChart() {
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task Status');
+        data.addColumn('number', 'No. of Tasks');
+        data.addRows(2);
+        data.setValue(0, 0, 'Open Tasks');
+        data.setValue(0, 1, <apex:outputText value="{!IF(Space_Plan_Reset__c.Total_Open_Task_Count__c == null,0,Space_Plan_Reset__c.Total_Open_Task_Count__c)}"/>);
+        data.setValue(1, 0, 'Complete Tasks');
+        data.setValue(1, 1, <apex:outputText value="{!IF(Space_Plan_Reset__c.Total_Complete_Task_Count__c == null,0,Space_Plan_Reset__c.Total_Complete_Task_Count__c)}"/>);
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div0'));
+        chart.draw(data, {width: 400, height: 240, title: 'Task Analysis',pieSliceText:'value', colors:['eeaa66','2299bb'],chartArea:{left:40,top:40,width:"80%",height:"60%"}});
+    
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task Status');
+        data.addColumn('number', 'Open');
+        data.addColumn('number', 'Late');
+        data.addColumn('number', 'Blocked');
+        data.addRows(1);
+        data.setValue(0, 0, 'No. of Tasks');
+        data.setValue(0, 1, <apex:outputText value="{!IF(Space_Plan_Reset__c.Total_Open_Task_Count__c == null,0,Space_Plan_Reset__c.Total_Open_Task_Count__c)}"/>);
+        data.setValue(0, 2, <apex:outputText value="{!IF(Space_Plan_Reset__c.Total_Late_Task_Count__c == null,0,Space_Plan_Reset__c.Total_Late_Task_Count__c)}"/>);
+        data.setValue(0, 3, <apex:outputText value="{!IF(Space_Plan_Reset__c.Total_Blocked_Task_Count__c == null,0,Space_Plan_Reset__c.Total_Blocked_Task_Count__c)}"/>);
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+        chart.draw(data, {width: 400, height: 240, title: 'Open Task Analysis', colors:['eeaa66','2299bb','ee3322'],chartArea:{left:40,top:40}});
+    
+        
+     }
+     
+     google.setOnLoadCallback(drawChart);
+    </script>                          
+    </apex:outputPanel>
+</apex:page>

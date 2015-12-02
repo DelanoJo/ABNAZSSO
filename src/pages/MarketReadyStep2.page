@@ -1,0 +1,171 @@
+<!-- Author        :   Nimisha Prashant(Appirio)-->
+<!-- Created Date  :   August 19,2015-->
+<!-- Task          :   T-427521/S-340448-->
+<!-- Description   :   Step 2 of Market Ready Wizard-->
+<apex:page standardController="Milestone1_Project__c" extensions="MarketReadyExtension" tabStyle="Market_Ready_Go__tab" title="Market Ready">
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <style>
+    .btnPagination{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: orange !important;
+      color: white !important;
+    }
+    .btnDisabled{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: lightgray !important;
+      color: white !important;
+    }
+  </style>
+  <script>
+    $j = jQuery.noConflict();
+    $j(document).ready(function() {
+	    $j('.projectSTR').keypress(function(event){
+	      if (event.keyCode == 10 || event.keyCode == 13) 
+	          event.preventDefault();
+	      });
+    });
+    
+    function populateName() {
+      var productName = $j('[Id*="productId"]').next().find('input').val();
+      var productId = $j('[id*="productId"]').val();
+      if(productName != 'undefined' && productName != '' && productId != null) {
+        $j('[id*="prodName"]').val(productName);
+        //var productRegion = $j('.projectRegion').find(":selected").text();
+        var selectedRegions = $j.map($j('.projectRegion :selected'),
+          function(e) { return $j(e).text(); } );
+        var productRegion = selectedRegions.join(', ');
+        var productSTR = $j('.projectSTR').val();
+        if(productRegion != "" && productRegion != 'undefined' && productSTR != "" && productSTR != 'undefined') {
+          var productSTRDate = new Date($j('.projectSTR').val());
+          productSTR = productSTRDate.getFullYear() + "-" + (productSTRDate.getMonth()+1) + "-" + productSTRDate.getDate();
+          var productName = productName +" - "+ productRegion +" - "+ productSTR;
+          $j('[id*="productName"]').html(productName);
+          //storeName(productName);
+          $j('[id*="productNameHidden"]').val(productName);
+        }
+        else $j('[id*="productName"]').html("");
+      }
+      else $j('[id*="productName"]').html("");
+      validate();
+    }
+    
+    function checkProduct(){
+      $j('[id*="productId"]').val('');
+      populateName();
+    }
+
+    $j('input[id*="targetName"]').change(function(){
+      if(this.val() == "") {
+        $j('[id*="productId"]').val('');
+        populateName();
+      }
+    });
+
+    function enableNext(){
+      $j('input[type="submit"][value="Next"]')
+        .removeProp('disabled')
+        .removeClass('btnDisabled')
+        .addClass('btnPagination');
+    }
+
+    function disableNext(){
+      $j('input[type="submit"][value="Next"]')
+        .prop('disabled',true)
+        .removeClass('btnPagination')
+        .addClass('btnDisabled');
+    }
+
+    function validate(){
+      var productName = $j('[Id*="productId"]').next().find('input').val()
+      if(productName != 'undefined' && productName != '' && productName != null) {
+        var productRegion = $j('.projectRegion').find(":selected").text(); 
+        var productSTR = $j('.projectSTR').val();
+        var projectType = $j('.projectType').val();
+        var programPurpose = $j('.programPurpose').val();
+        if(productRegion != "" && productRegion != 'undefined'
+           && productSTR != "" && productSTR != 'undefined'
+           && projectType != "" && projectType != 'undefined'
+           && programPurpose != "" && programPurpose != 'undefined') {
+          enableNext();
+        } else {
+          disableNext();
+        }
+      } else {
+        disableNext();
+      }
+    }
+
+    $j(function() {
+      var prodName = $j('[id*="prodName"]').val();
+      if(prodName != 'undefined' && prodName != '' && prodName != null) {
+        $j('[Id*="productId"]').next().find('input').val(prodName);
+      }
+      validate();
+    });
+
+  </script>
+  <apex:sectionHeader title="Market Ready" subtitle="Create New Program" />
+  <apex:form >
+    <apex:pageMessages id="pgMessages"/>
+    <apex:inputHidden value="{!newProject.Name}" id="productNameHidden"/>
+    <apex:pageBlock title="Program Details">
+<!--       <apex:pageBlockButtons location="bottom" style="padding-left: 17%;">
+	      <apex:commandButton action="{!step1}" value="Previous"/>
+	      <apex:commandButton action="{!step3}" value="Next - Tasks"/>
+	    </apex:pageBlockButtons> -->
+	    <apex:pageBlockSection columns="1">
+	      <apex:pageBlockSectionItem helpText="Please search for a Product but if not found you may enter the Product Name and add the PDCN later">
+	        <apex:outputLabel value="Lead/Initial Product" for="product"/>
+	        <apex:outputPanel id="product">
+            <apex:inputHidden value="{!productName}" id="prodName"/>
+	          <apex:inputHidden value="{!product}" id="productId"/>
+	          <c:CustomLookup objectName="US_Product__c" fieldAPI="Name" fieldToPopulateId="{!$Component.productId}" fieldSetName="Product_Search_Result"/>
+	        </apex:outputPanel>
+	      </apex:pageBlockSectionItem>
+	      <apex:pageBlockSectionItem >
+	        <apex:outputLabel value="Region"/>
+	        <apex:inputField value="{!newProject.Region__c}" styleClass="projectRegion" onchange="populateName();"/>
+	      </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Planned Kickoff Date"/>
+          <apex:inputField value="{!newProject.Kickoff__c}" styleClass="projectKickoff" />
+        </apex:pageBlockSectionItem>
+	      <apex:pageBlockSectionItem >
+	        <apex:outputLabel value="STR Date"/>
+	        <apex:inputField value="{!newProject.Deadline__c}" styleClass="projectSTR" onchange="populateName();"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Type"/>
+          <apex:inputField value="{!newProject.Program_Type__c}" styleClass="projectType" onchange="validate();"/>
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Name"/>
+          <apex:outputField value="{!newProject.Name}" id="productName"/>
+        </apex:pageBlockSectionItem> 
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Purpose"/>
+          <apex:inputField value="{!newProject.Description__c}" style="width: 40%;" styleClass="programPurpose" onkeyup="validate();"/>
+        </apex:pageBlockSectionItem>
+	    </apex:pageBlockSection>
+
+      <apex:pageBlockSection columns="2" id="footer" > 
+        <apex:pageBlockSectionItem >
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputPanel style="text-align:right" layout="block">
+                <apex:commandButton value="Cancel" styleClass="btnPagination" action="{!cancel}"/>
+                <apex:commandButton action="{!step1}" value="Previous" styleClass="btnPagination"/>
+                <apex:commandButton action="{!step3}" value="Next" styleClass="btnDisabled"/>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

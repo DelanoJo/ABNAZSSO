@@ -1,0 +1,161 @@
+<apex:component controller="MRAccountProductComponentController" allowDML="true" id="mrAccountProductComponent">
+    <style>
+		.btnPagination{
+			margin: 4px !important; 
+			text-decoration: none !important;
+			font-size:10pt !important;
+			background-image:none !important;
+			background-color: orange !important;
+			color: white !important;
+		}
+		.btnDisabled{
+			margin: 4px !important; 
+			text-decoration: none !important;
+			font-size:10pt !important;
+			background-image:none !important;
+			background-color: lightgray !important;
+			color: white !important;
+		}
+        #filtercontainer ul li {
+            display: inline;
+        }
+        #filtercontainer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #filtercontainer li {
+            margin-left: 0;
+            margin-right: 1.5em;
+        }
+    </style>
+
+    <apex:attribute name="p_fieldsCSV" type="String" assignTo="{!fieldsCSV}" description="Comma separated list of API field names that will be displayed in the relatedList. If defined, this will override the fieldsList attribute."/> 
+    <apex:attribute name="p_recordId" type="String" assignTo="{!recordId}" description="Comma separated list of API field names that will be displayed in the relatedList. If defined, this will override the fieldsList attribute."/>
+    <apex:attribute name="p_initialAccountId" type="String" assignTo="{!initialAccountId}" description="If launched from Task chosen Account."/>
+    <apex:attribute name="p_accountField" type="String" assignTo="{!accountField}" description="If launched from Task chosen Account."/>
+    <apex:attribute name="p_pageTitle" type="String" description="Title of page."/>
+    <apex:attribute name="p_childObject" type="String" assignTo="{!childObject}" description="API name of child object to be created."/>
+    <apex:attribute name="p_accountType" type="String" description="Type of account."/>
+    <apex:attribute name="p_rerenderJS" type="String" description="JS function to be called on rerender."/>
+
+    <script type="text/javascript">
+    	var unsavedChanges;
+
+		function checkUnsaved(){
+			if(unsavedChanges){
+				if(!confirm("Usaved changes detected, would you like to proceed?")){
+					return false;
+				}
+			}
+			window.location.href = "/{!recordId}";
+		}
+
+		function setUnsaved(){
+			unsavedChanges = true;
+		}
+
+		function setOnChange(){
+			unsavedChanges = false;
+			j$('[id$=accountSelectList]').change(function() {
+			    var selected = j$(this).val();
+
+			    if (unsavedChanges) {
+			        if (!confirm("Usaved changes detected, would you like to proceed?")) {
+			            j$(this).val(j$.data(this, 'current'));
+			            return false;
+			        }     
+			    }
+
+			    j$.data(this, 'current', j$(this).val());
+			    __queryProducts();
+			    unsavedChanges = false;
+			});
+		}
+
+		j$(document).ready(function() {
+			setOnChange();
+			unsavedChanges = j$('.errorMsg').length > 0 ? true : false;
+		});
+    </script>
+    
+    <apex:form id="theForm">
+        
+        <apex:sectionHeader title="{!p_pageTitle}" subtitle="{!IF(selectedAccount!=null,selectedAccount.Name,program.Name)}" />
+        
+        <apex:pageMessages />
+
+        <apex:outputPanel id="firstStep">
+
+            <apex:actionFunction action="{!loadData}" name="__queryProducts" rerender="theForm" status="loadingFilter" oncomplete="setOnChange();{!p_rerenderJS}"/>
+            
+            <apex:pageBlock id="pb">
+            	<apex:outputPanel style="width:100% !important" rendered="{!IF(accountOptions!=null,accountOptions.size>1,false)}">
+                <p> 
+                    Select a {!p_accountType}
+                </p>
+                <br/>
+                    <div id="filtercontainer">
+	                    <ul>
+	                        <li>
+	                            <apex:selectList size="1" value="{!selectedAccountId}" id="accountSelectList">
+	                                <apex:selectoptions value="{!accountOptions}"/>
+	                            </apex:selectList>
+	                        </li>
+	                    </ul>
+                    </div>
+                </apex:outputPanel>
+
+                <br/>
+                
+                <apex:pageBlockTable value="{!retAuthList}" var="p" id="results" rendered="{!IF(retAuthList!=null,retAuthList.size>0,false)}">
+
+                    <apex:column >
+                        <apex:facet name="header">
+                        	<span>Product Name</span>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p['MR_Product__r']['Product__r.Name']}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+
+		             <!-- Loop through list of field names to dynamically render the correct columns -->
+		            <apex:repeat value="{!fieldNames}" var="fld">
+		               
+		                <apex:column >
+		                    <apex:facet name="header">
+		                    	<apex:outputText value="{!nameLabelMap[fld]}"/>
+		                    </apex:facet>
+		                    <apex:inputField value="{!p[fld]}" html-data-id="{!fld}" onchange="setUnsaved();" />
+		                </apex:column>
+
+		            </apex:repeat>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <span>Last Modified By</span>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p['LastModifiedById']}" />&nbsp;<apex:outputField value="{!p['LastModifiedDate']}" />
+                        </apex:outputPanel>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+
+                <apex:pageBlockSection columns="2" id="footer" > 
+                        <apex:pageBlockSectionItem >
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputPanel style="text-align:right" layout="block">
+                                <input type="button" value="Close" class="btn btnPagination" onclick="checkUnsaved();return false;" />
+                                <apex:commandButton value="Save" styleClass="{!IF(retAuthList!=null,'btnPagination','btnDisabled')}" action="{!save}" reRender="theForm" oncomplete="setOnChange();{!p_rerenderJS}" rendered="{!IF(retAuthList!=null,retAuthList.size>0,false)}"/>
+                                <apex:commandButton value="Save and Close" styleClass="{!IF(retAuthList!=null,'btnPagination','btnDisabled')}" action="{!saveAndClose}" rendered="{!IF(retAuthList!=null,retAuthList.size>0,false)}"/>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                
+            </apex:pageBlock>
+        
+        </apex:outputPanel>
+    </apex:form>
+</apex:component>

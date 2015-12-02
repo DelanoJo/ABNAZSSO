@@ -1,0 +1,133 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "permissionSets", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 3
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "permissionSetId", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 4
+            }, 
+            "type": "Id"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "psa", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 44, 
+                "line": 5
+            }, 
+            "type": "Permission_Set_Assignment_Rules__c"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "CreatePermissionSetAssignmentController", 
+            "parameters": [
+                {
+                    "type": "StandardController", 
+                    "name": "controller"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 9, 
+                "line": 7
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "CreatePermissionSetAssignmentController", 
+    "tableDeclaration": {
+        "type": "CreatePermissionSetAssignmentController", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "CreatePermissionSetAssignmentController"
+    }, 
+    "key": "01p55000000DcSOAA0", 
+    "variables": [
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 78, 
+                "line": 7
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "PermissionSet", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 10
+            }, 
+            "name": "ps"
+        }, 
+        {
+            "type": "PageReference", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 20
+            }, 
+            "name": "newPermissionSetAssignmentRuleId"
+        }
+    ], 
+    "id": "01p55000000DcSOAA0", 
+    "methods": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "save", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 15
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }
+    ]
+}

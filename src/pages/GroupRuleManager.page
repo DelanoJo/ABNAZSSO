@@ -1,0 +1,49 @@
+<apex:page standardController="Group_Rule__c" extensions="GroupRuleManagerController" action="{!onLoad}" >
+	
+	<apex:sectionHeader title="Edit Rules" subtitle="{!dynamicGroup.Name}"/>
+
+	<apex:form >
+		<apex:pageBlock >
+		<apex:outputPanel rendered="{!dynamicGroup.Active__c}">
+           	<apex:pageMessage summary="Please deactivate the Dynamic Group before editing/deleting Group Assignment rules."
+           		severity="error" strength="3" />
+		</apex:outputPanel>
+		<apex:pageMessages />
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!onSave}" value="Save"  rendered="{!NOT(dynamicGroup.Active__c)}"/>
+				<apex:commandButton action="{!onCancel}" immediate="true" value="Cancel"/>
+			</apex:pageBlockButtons>
+			
+			<apex:pageBlockTable id="conditions" value="{!conditions}" var="row"  rendered="{!NOT(dynamicGroup.Active__c)}">
+			
+				<!--apex:column headerValue="Object Name">
+	            	<apex:outputField value="{!dynamicGroup.ObjectName__c}" />
+	            </apex:column-->
+	            <apex:column headerValue="Record Field">
+	            	<apex:selectList size="1" value="{!row.condition.Record_Field__c}" required="true">
+	            		<apex:selectOptions value="{!recordFieldOptions}"/>
+	            	</apex:selectList>
+	            </apex:column>
+	            <apex:column headerValue="Operator">
+	            	<apex:inputField value="{!row.condition.Operator__c}" required="true"/>
+	            </apex:column>
+	            <apex:column headerValue="Value(For Date Fields enter in format YYYY-MM-DD)">
+	            	<apex:inputField value="{!row.condition.Value__c}"/>
+	            </apex:column>
+	            <apex:column >
+	            	<apex:outputPanel >
+		            	<apex:commandButton action="{!onAddCondition}" immediate="false" reRender="conditions" value="+">
+		            		<apex:param name="selectedId" value="{!row.id}"/>
+		            	</apex:commandButton>
+		            	<apex:commandButton action="{!onRemoveCondition}" immediate="false" reRender="conditions" value="-">
+		            		<apex:param name="selectedId" value="{!row.id}"/>
+		            	</apex:commandButton>
+	            	</apex:outputPanel>
+	            </apex:column>
+	        </apex:pageBlockTable> 
+		</apex:pageBlock>
+
+
+	</apex:form>
+	
+</apex:page>

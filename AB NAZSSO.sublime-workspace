@@ -1,0 +1,1120 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"q",
+				"query"
+			],
+			[
+				"current",
+				"currentAccId"
+			],
+			[
+				"COntact",
+				"ContactId"
+			],
+			[
+				"pageBlockSe",
+				"apex:pageBlockSectionItem"
+			],
+			[
+				"qt",
+				"Concerto_OS_7_Product_Overview_Qty__c"
+			],
+			[
+				"qty",
+				"Windows_Flash_Array_Product_Overview_Qty__c"
+			],
+			[
+				"record",
+				"recordTypeId"
+			],
+			[
+				"re",
+				"recordTypeId"
+			],
+			[
+				"be",
+				"beforeMDFInsert"
+			],
+			[
+				"pdf",
+				"pdfContent"
+			],
+			[
+				"Assign",
+				"Assignment_Rule__c"
+			],
+			[
+				"Assi",
+				"Assignment_Rule__c"
+			],
+			[
+				"Group",
+				"Group_Rule__c"
+			],
+			[
+				"Record",
+				"Record_Field__c"
+			],
+			[
+				"Re",
+				"Record_Field__c"
+			],
+			[
+				"gr",
+				"groupAssign"
+			],
+			[
+				"permiss",
+				"permissionSetsToInsert"
+			],
+			[
+				"Permiss",
+				"Permission_Set_Assignment_Rules__c"
+			],
+			[
+				"getd",
+				"PUBLIC getData(String sObjVal, String labelFieldVar, String valueFieldVar, String param, String accTypeVar, String serviceAreaVar, String accIdVar) 	LIST"
+			],
+			[
+				"targ",
+				"PUBLIC targetField1	String"
+			],
+			[
+				"set",
+				"PUBLIC setCacheField1(Object cacheField1) 	void"
+			],
+			[
+				"gettar",
+				"PUBLIC getTargetFieldVar1() 	Object"
+			],
+			[
+				"getc",
+				"PRIVATE getCacheFieldValue1(Object targetFieldVar1) 	Object"
+			],
+			[
+				"remo",
+				"PUBLIC numberOfRowToRemove	Integer"
+			],
+			[
+				"M",
+				"PUBLIC myLead	Lead"
+			],
+			[
+				"my",
+				"PUBLIC myLead	Lead"
+			],
+			[
+				"r",
+				"runAs(System.Version_version)"
+			],
+			[
+				"atta",
+				"attachmentPDF"
+			],
+			[
+				"O",
+				"Other_Expenditure_Type__c"
+			],
+			[
+				"Ex",
+				"Expenditure_Type__c"
+			],
+			[
+				"att",
+				"attachment1"
+			],
+			[
+				"m",
+				"PUBLIC myAccount	Account"
+			],
+			[
+				"check",
+				"PUBLIC checkPartnerValue() 	void"
+			],
+			[
+				"event",
+				"Event_Contact_Diff_from_Partner_Contact__c"
+			],
+			[
+				"new",
+				"newMDF"
+			],
+			[
+				"che",
+				"PUBLIC checkPartnerValue() 	void"
+			],
+			[
+				"Terms",
+				"Terms_Conditions__c"
+			],
+			[
+				"Diff",
+				"Event_Contact_Diff_from_Partner_Contact__c"
+			],
+			[
+				"Event",
+				"Event_Start_Time__c"
+			],
+			[
+				"Start",
+				"Event_Start_Date__c"
+			],
+			[
+				"Person",
+				"Will_Violin_Personnel_Attend__c"
+			],
+			[
+				"Vendo",
+				"Other_Vendors_Involved__c"
+			],
+			[
+				"Messa",
+				"Message__c"
+			],
+			[
+				"Other",
+				"Other_Activity_Type__c"
+			],
+			[
+				"C",
+				"Call_to_Action__c"
+			],
+			[
+				"A",
+				"Activity_Type__c"
+			],
+			[
+				"Act",
+				"Activity_Measurement__c"
+			],
+			[
+				"Ac",
+				"Activity_Objective__c"
+			],
+			[
+				"P",
+				"ProfileId"
+			],
+			[
+				"inp",
+				"apex:inputField"
+			],
+			[
+				"out",
+				"apex:outputLabel"
+			],
+			[
+				"render",
+				"renderEventInfo"
+			],
+			[
+				"pageBlock",
+				"apex:pageBlockSection"
+			],
+			[
+				"outp",
+				"apex:outputLink"
+			],
+			[
+				"comd",
+				"comD2"
+			],
+			[
+				"com",
+				"comD1"
+			],
+			[
+				"does",
+				"PUBLIC doesContactExist(User u, String emailDomain) 	Boolean"
+			],
+			[
+				"Cus",
+				"CustomCommunitiesSelfRegController	[Custom Apex Class]"
+			],
+			[
+				"sat",
+				"static"
+			],
+			[
+				"email",
+				"emailDomain"
+			],
+			[
+				"emia",
+				"emailDomain"
+			],
+			[
+				"Nikc",
+				"CommunityNickname"
+			],
+			[
+				"g",
+				"PUBLIC getMessage() 	String"
+			],
+			[
+				"em",
+				"emailDomain"
+			],
+			[
+				"Meme",
+				"MembersFormatted"
+			],
+			[
+				"Sel",
+				"SelectOption	[Standard Apex Class]"
+			],
+			[
+				"Netw",
+				"NetworkMember"
+			],
+			[
+				"NetW",
+				"networkId"
+			],
+			[
+				"Co",
+				"ContactId"
+			],
+			[
+				"Role",
+				"UserRole"
+			],
+			[
+				"conta",
+				"contactUser1"
+			],
+			[
+				"con",
+				"controllerC2"
+			],
+			[
+				"BA",
+				"controllerBA"
+			],
+			[
+				"Contac",
+				"ContactProvisionerController	[Custom Apex Class]"
+			],
+			[
+				"birch",
+				"birchAccount"
+			],
+			[
+				"Currency",
+				"CurrencyIsoCode"
+			],
+			[
+				"ass",
+				"assertEquals()"
+			],
+			[
+				"as",
+				"assertEquals()"
+			],
+			[
+				"BirchAccount",
+				"BirchAccountProvisionerController	[Custom Apex Class]"
+			],
+			[
+				"val",
+				"validAcctMsg"
+			],
+			[
+				"deac",
+				"deactivatedContacts"
+			],
+			[
+				"dea",
+				"deactivatedContacts"
+			],
+			[
+				"User",
+				"UserInfo	[Standard Apex Class]"
+			],
+			[
+				"Name",
+				"Name"
+			],
+			[
+				"ac",
+				"PUBLIC accountName	String"
+			],
+			[
+				"busUnit",
+				"busUnitAccessList"
+			],
+			[
+				"busUn",
+				"busUnitRoles"
+			],
+			[
+				"busUni",
+				"busUnitAccess"
+			],
+			[
+				"get",
+				"PUBLIC getStatusCode() 	Integer"
+			],
+			[
+				"getHe",
+				"PUBLIC getHeader(String key) 	String"
+			],
+			[
+				"va",
+				"validAcctMsg"
+			],
+			[
+				"Currenc",
+				"Currency_x"
+			],
+			[
+				"Birch",
+				"Birch_Active__c"
+			],
+			[
+				"Billing",
+				"BillingPostalCode"
+			],
+			[
+				"Bill",
+				"BillingCountry"
+			],
+			[
+				"Billin",
+				"BillingCity"
+			],
+			[
+				"retri",
+				"retrieveBusinessUnit"
+			],
+			[
+				"b",
+				"birchUser"
+			],
+			[
+				"mess",
+				"PUBLIC MessageText	String"
+			],
+			[
+				"valid",
+				"validBirchUserMsg"
+			],
+			[
+				"Br",
+				"Birch_Active__c"
+			],
+			[
+				"Birth",
+				"BirchUtils	[Custom Apex Class]"
+			],
+			[
+				"bus",
+				"busUnitAccess"
+			],
+			[
+				"Bui",
+				"PUBLIC BusinessUnitAccessList	LIST"
+			],
+			[
+				"cont",
+				"contactAccount"
+			],
+			[
+				"birh",
+				"birchUser"
+			],
+			[
+				"birchUser",
+				"birchUserIsValid"
+			],
+			[
+				"is",
+				"contactIsValid"
+			],
+			[
+				"debug",
+				"debug(Anydatatype_msg)"
+			],
+			[
+				"inV",
+				"invalidBirchUserMsg"
+			],
+			[
+				"JS",
+				"JSON	[Standard Apex Class]"
+			],
+			[
+				"Accoun",
+				"AccountId"
+			],
+			[
+				"Account",
+				"AccountExists"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/classes/GroupRuleMangagerController.cls",
+			"settings":
+			{
+				"buffer_size": 6858,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/FieldSelectOptions.cls",
+			"settings":
+			{
+				"buffer_size": 2027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/PermissionSetAssignmentUtils.cls",
+			"settings":
+			{
+				"buffer_size": 3237,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/triggers/PermimissionSetTrigger.trigger",
+			"settings":
+			{
+				"buffer_size": 3066,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/BatchUpdatePermissionAssignments.cls",
+			"settings":
+			{
+				"buffer_size": 1093,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/Operators.cls",
+			"settings":
+			{
+				"buffer_size": 10617,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/QueryBuilder.cls",
+			"settings":
+			{
+				"buffer_size": 8127,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 539.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Delano/Documents/workspace/AB NAZSSO",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/classes",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/triggers"
+	],
+	"file_history":
+	[
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/MDFTests.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/triggers/updateBudget_FundRequest.trigger",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/MDFTriggerTests.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/AssetControllerTest.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/QuoteWizardController.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/PRM_VMEM_Inbound_Email_Handler.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/PRM_VMEM_Phase2Tests.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/TestAccountContactRoleDetails.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/pages/SubmitForExtension.page",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/PRM_VMEM_ProgramTriggerHandler.cls",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/PRM_VMEM_OpportunityTriggerHandler.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/BatchUpdateLeads.cls",
+		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Delano/Documents/workspace/OpenXSandbox/metadata/aura/SubmitAnIdea/SubmitAnIdea.svg",
+		"/Users/Delano/Documents/workspace/OpenXSandbox/metadata/aura/SubmitAnIdea/SubmitAnIdea.cmp",
+		"/Users/Delano/Documents/workspace/OpenXSandbox/src/classes/SubmitAnIdeaController.cls",
+		"/Users/Delano/Documents/workspace/OpenXSandbox/src/classes/CustomCommunitiesSelfRegController.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/GlobalSaaSi_LeadDataListViewController.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/pages/PRM_Home.page",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/pages/GlobalPRM_Template.page",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/pages/PRM_Home.page-meta.xml",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/GlobalSaaSi_SelectorClass.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/pages/Community_LeadLandingPage.page",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/components/Community_Lead_Inbox_Center.component",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/ArrayUtils.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/components/GlobalSaaSi_Pagination.component",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/GlobalSaaSi_DataList.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/NewUserGridController.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/config/.settings",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/src/classes/Community_Lead_Inbox_Controller.cls",
+		"/Users/Delano/Documents/workspace/SaaSi Sandbox/config/.local_store",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/CommunitiesLoginController.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/pages/CommunityUserLogin.page",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/CommunitiesSelfRegConfirmController.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/pages/CommunitiesLogin.page",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/pages/SC_CustomerLoginPage.page",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/testCeligoTrigger.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/CommunityUserLoginController.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/SC_LithiumSSORedirectController.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/SC_EmailsRelatedListController.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/BirchResponseParser.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/BirchUserParser.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/BirchBusinessUnitParser.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/BirchAuthParser.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/BirchUtils.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/ContactProvisionerController.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/CaseTriggerHelper.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/AccountProcessor.cls",
+		"/Users/Delano/Documents/workspace/PureStorage_OppStaging/src/classes/AccountTriggerPopAuthPartnerHelper.cls",
+		"/Users/Delano/Documents/workspace/Page1Production/src/classes/MyROIController.cls",
+		"/Users/Delano/Documents/workspace/Page1Production/src/classes/AccountTimeController.cls-meta.xml",
+		"/Users/Delano/Documents/workspace/Page1Production/src/classes/AccountTimeAttendance.cls",
+		"/Users/Delano/Documents/Aptana Studio 3 Workspace/ushomego/README.textile",
+		"/Users/Delano/Dropbox/WorkStuff/login.html",
+		"/Users/Delano/Documents/workspace/MProduction/src/classes/NotesUtils.cls",
+		"/Users/Delano/Dropbox/AndroidSuccessHub/SuccessHub/assets/www/cordova-2.3.0.js",
+		"/Users/Delano/Dropbox/2.1SuccessHubTest/Success Hub/Images.xcassets/LaunchImage-2.launchimage/Contents.json",
+		"/Users/Delano/Dropbox/Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js",
+		"/Users/Delano/Dropbox/Mobile-Design-Templates-master/common/js/main.min.js",
+		"/Users/Delano/Dropbox/Mobile-Design-Templates-master/common/css/app.min.css",
+		"/Users/Delano/Dropbox/Mobile-Design-Templates-master/common/css/app.css",
+		"/Users/Delano/Documents/Mobile-Design-Templates-master 2/common/css/app.css",
+		"/Users/Delano/Documents/Mobile-Design-Templates-master 2/common/css/app.min.css",
+		"/Users/Delano/Documents/Mobile-Design-Templates-master 2/common/js/main.min.js",
+		"/Users/Delano/Documents/Mobile-Design-Templates-master 2/common/js/jquery.touchwipe.min.js",
+		"/Users/Delano/Documents/workspace/MProduction/src/triggers/ClientPriorityList.trigger",
+		"/Users/Delano/Documents/workspace/MProduction/src/classes/ClientPriorityList.cls",
+		"/Users/Delano/Documents/workspace/MProduction/src/classes/Page1ProjectUtils.cls",
+		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/MavensMate/mavensmate.sublime-settings",
+		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<current file>,<open files>,<open folders>",
+			"<current file>",
+			"<current file>,<open folders>",
+			"<current file>",
+			"<current file>,<open folders>",
+			"<current file>",
+			"<open folders>",
+			"<current file>",
+			"<open folders>",
+			"<current file>",
+			"<open folders>",
+			"BirchAccountProvisionerController.cls",
+			"BirchAccountProvisionerController",
+			"BirchAccountProvisioner",
+			"ContactProvisionerController.cls",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"[",
+			"Group_Permission_Set_Name__c",
+			"Permission_Set__c",
+			"Group_rule",
+			"sched",
+			"setpermissionsets",
+			"getBudgetList",
+			"Approved_Requests__c",
+			"approv",
+			"on SFDC_MDF",
+			"BatchUpdateGroupAssignmentRules",
+			"on SFDC_b",
+			"BudgetUtil",
+			"util",
+			"SFDC_Budget__c",
+			"on sfdc_b",
+			"on sfdc_bÏ",
+			"on sfdc_b",
+			"account",
+			"budget",
+			"with sharing",
+			"without sharing",
+			"on account",
+			"test",
+			"from a",
+			"on SFDC_Budget__c",
+			"runas",
+			"test",
+			"apex:inputField",
+			"X7700_Product_Overview_Qty__c",
+			"ship",
+			"requiredin",
+			"lastname",
+			"company",
+			"required=",
+			"shipt",
+			"primary",
+			"title",
+			"company",
+			"name",
+			"primary",
+			"name",
+			"phone",
+			"primary",
+			"phone",
+			"primary",
+			"technical",
+			"description",
+			"desctip",
+			"requiredBlock",
+			"qty",
+			"evaluate",
+			"actionsup",
+			"accurate",
+			"Approved_Requests__c +",
+			"Approved_Requests__c",
+			"Approved_Requests__c =",
+			"Approved_Requests__c=",
+			"Approved_Requests__c =",
+			"Approved_Requests__c",
+			"Amount__c",
+			"Estimated_PO_Timeframe__c",
+			"estimated",
+			"select phone",
+			"RecordTypeId",
+			".RecordType",
+			".Status",
+			"record",
+			"'Fund Request'",
+			".RecordTypeId",
+			"afterMDFInsert",
+			"beforemdfInsert",
+			"RecordType",
+			"recordt",
+			"record",
+			"upload",
+			".body",
+			".bodyj",
+			".body",
+			"aftermdfInsert",
+			"autoSubmitmdfsForApproval",
+			"beforemdfInsert",
+			"approval",
+			".status",
+			"hide field from edit view",
+			".status",
+			"lead",
+			"hide",
+			"Status",
+			"status",
+			"lead_stau",
+			"outputlink",
+			"pdf",
+			"M",
+			"QueryResult",
+			"records",
+			"returnURL{",
+			"new",
+			"returnurl",
+			"returl",
+			"urlfor",
+			"on Permission_Set_Assignment_Rules__c",
+			"addfields",
+			"Group_Rule__c",
+			"Assignment_Rule",
+			"RecordTypeId",
+			"random",
+			"targetField1",
+			"DealRegAutocompleteField",
+			"Fund_Request__c",
+			"message",
+			"claimWithAttachments()",
+			"renderattachments",
+			"renderattach",
+			"renderatt",
+			"addFields",
+			"upsert",
+			"insert",
+			"insert ",
+			"from at",
+			"attachment",
+			"insert",
+			"claim",
+			"goback",
+			"gonext",
+			"controller",
+			"testSetup",
+			"starttest"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"CommunityDefaults__c",
+			"communityUserId",
+			"String communityUserId",
+			"latest11",
+			"GlobalSaaSi",
+			"GlobalSaaSi_StandardPagination",
+			"acctIsValid",
+			"Account",
+			"account",
+			"' + '\\\\' + 'n",
+			"' + ''\\' + '",
+			"' + '\\'' + '",
+			"' + '\\' + '",
+			"' + ''\\' + 'n",
+			"",
+			"\\n",
+			"public",
+			"FFF",
+			"193D71"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/classes/GroupRuleMangagerController.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1453,
+								1453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/FieldSelectOptions.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								517,
+								517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/PermissionSetAssignmentUtils.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1373,
+								1373
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/triggers/PermimissionSetTrigger.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1681,
+								1681
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/classes/BatchUpdatePermissionAssignments.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1020,
+								1020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/classes/Operators.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								767,
+								767
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/classes/QueryBuilder.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								764,
+								764
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 112.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "AB NAZSSO.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 301.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

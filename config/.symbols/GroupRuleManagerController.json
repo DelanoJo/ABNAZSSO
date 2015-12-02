@@ -1,0 +1,595 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "dynamicGroup", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 47, 
+                "line": 3
+            }, 
+            "type": "Permission_Set_Assignment_Rules__c"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "nextId", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 4
+            }, 
+            "type": "Integer"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "selectedId", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 5
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "recordFields", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 6
+            }, 
+            "type": "FieldSelectOptions"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "conditions", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 7
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "deleted", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 8
+            }, 
+            "type": "LIST"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "delIds", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 9
+            }, 
+            "type": "Set"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "options", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 10
+            }, 
+            "type": "LIST"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "id", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 24, 
+                        "line": 47
+                    }, 
+                    "type": "String"
+                }, 
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "condition", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 31, 
+                        "line": 48
+                    }, 
+                    "type": "Group_Rule__c"
+                }, 
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "objectOptionsMap", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 49, 
+                        "line": 49
+                    }, 
+                    "type": "Map"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "ConditionRow", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "id"
+                        }, 
+                        {
+                            "type": "Group_Rule__c", 
+                            "name": "condition"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 51
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "ConditionRow", 
+            "tableDeclaration": {
+                "type": "ConditionRow", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 18, 
+                    "line": 46
+                }, 
+                "name": "ConditionRow"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 36, 
+                        "line": 51
+                    }, 
+                    "name": "id"
+                }, 
+                {
+                    "type": "Group_Rule__c", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 54, 
+                        "line": 51
+                    }, 
+                    "name": "condition"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getId", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 23, 
+                        "line": 56
+                    }, 
+                    "returnType": "String", 
+                    "type": null
+                }, 
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getCondition", 
+                    "parameters": [], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 30, 
+                        "line": 60
+                    }, 
+                    "returnType": "Group_Rule__c", 
+                    "type": null
+                }
+            ]
+        }
+    ], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "GroupRuleManagerController", 
+            "parameters": [
+                {
+                    "type": "StandardController", 
+                    "name": "controller"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 12
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "GroupRuleManagerController", 
+    "tableDeclaration": {
+        "type": "GroupRuleManagerController", 
+        "modifiers": [
+            "public", 
+            "without sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 30, 
+            "line": 1
+        }, 
+        "name": "GroupRuleManagerController"
+    }, 
+    "key": "01p55000000DcA5AAK", 
+    "variables": [
+        {
+            "type": "StandardController", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 68, 
+                "line": 12
+            }, 
+            "name": "controller"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 14
+            }, 
+            "name": "groupRuleId"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 15
+            }, 
+            "name": "dynamicGroupId"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 17
+            }, 
+            "name": "groupRule"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 22
+            }, 
+            "name": "rule"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 33
+            }, 
+            "name": "cond"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 67
+            }, 
+            "name": "selectedId"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 69
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "ConditionRow", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 70
+            }, 
+            "name": "row"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 35, 
+                "line": 75
+            }, 
+            "name": "ruleGroupLocal"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 90
+            }, 
+            "name": "selectedId"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 92
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "ConditionRow", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 93
+            }, 
+            "name": "row"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 94
+            }, 
+            "name": "s"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 116
+            }, 
+            "name": "message"
+        }, 
+        {
+            "type": "Meta", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 118
+            }, 
+            "name": "mdata"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 29, 
+                "line": 119
+            }, 
+            "name": "batch"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 120
+            }, 
+            "name": "batchId"
+        }, 
+        {
+            "type": "ConditionRow", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 121
+            }, 
+            "name": "row"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 122
+            }, 
+            "name": "cond"
+        }, 
+        {
+            "type": "DescribeFieldResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 128
+            }, 
+            "name": "f"
+        }
+    ], 
+    "id": "01p55000000DcA5AAK", 
+    "methods": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "onLoad", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 31
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "onAddCondition", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 66
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "onRemoveCondition", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 89
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getRecordFieldOptions", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 110
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "onSave", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 114
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "onCancel", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 168
+            }, 
+            "returnType": "PageReference", 
+            "type": null
+        }
+    ]
+}

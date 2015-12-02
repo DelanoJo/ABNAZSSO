@@ -1,0 +1,249 @@
+<apex:page showHeader="true" sidebar="true" standardController="Milestone1_Project__c" extensions="ProgramMarketListController">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+<style>
+    .paginatorWrap {
+        background: url("/img/alohaSkin/listFooter.png") repeat-x scroll 0 0 #F2F2F2;
+        border: 1px solid #EAEAEA;
+        background-color: #F3F3F3;
+        border-top: 1px solid #FFFFFF;
+        padding: 5px;
+    }
+    .centerText{
+    	text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    var j$ = jQuery.noConflict();
+    function setCurrentPage(currentCon, index, currentIndex, numberOfLinks) {
+      if(currentIndex != index) {
+        currentIndex = parseInt(index);
+        getpage(currentCon, currentIndex);
+      }
+    }
+    function next(currentCon, currentIndex, numberOfLinks) {
+      if(currentIndex < numberOfLinks) {
+        currentIndex = currentIndex + 1;
+        getpage(currentCon, currentIndex);
+      }
+    }
+    function previous(currentCon, currentIndex, numberOfLinks) {
+      if(currentIndex > 1) {
+        currentIndex = currentIndex - 1;
+        getpage(currentCon, currentIndex); 
+      }
+    }
+    function enableInput(){
+        setTimeout(
+        function() 
+        {
+            j$(':input').prop('readonly', false);
+        }, 1000);
+    }
+    j$(function () {
+        setTimeout(
+        function() 
+        {
+            j$(':input').prop('readonly', false);
+        }, 1000);
+    });
+</script>
+<apex:form id="frm">
+
+<apex:actionFunction name="getpage" action="{!setPage}" rerender="results" oncomplete="enableInput();">
+    <apex:param value="" assignTo="{!curCon}" name="currentController" />
+    <apex:param value="" assignTo="{!newConPage}" name="newPageNum" />
+</apex:actionFunction>
+<apex:outputPanel id="results">
+<apex:pageBlock title="Decision Points">
+        <apex:pageBlockTable value="{!marketDPs}" var="ma" columnsWidth="70%,10%,10%,10%" columnClasses=",centerText,centerText,centerText">
+			<apex:column >
+	            <apex:facet name="header">
+	                <apex:outputText value="Name"/>
+	            </apex:facet>
+	            <apex:outputLink value="/apex/MRProgramAlignmentTasks?Id={!Milestone1_Project__c.Id}&accountId={!ma.account.Id}" target="_parent" rendered="{!ma.account.Id!=null}">
+	            {!ma.account.Name}
+	            </apex:outputLink>
+	            <apex:outputText value="{!IF(ma.account.Name=='--','&nbsp;',ma.account.Name)}" escape="false" rendered="{!ma.account.Id==null}" />
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Total Tasks" />
+	            </apex:facet>
+	            <apex:outputText value="{!ma.totalTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Open Tasks"/>
+	            </apex:facet>
+	            <apex:outputText value="{!ma.openTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Blocked Tasks"/>
+	            </apex:facet>
+	            <apex:outputText value="{!ma.blockedTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+		</apex:pageBlockTable>
+       <apex:outputPanel layout="block" styleClass="paginatorWrap" rendered="{!AND(dpCon.totalRecords > 0, NOT(ISNULL(dpCon.pageSize)))}">
+            <div class="paginator">
+  
+                <span class="prevNextLinks">
+                  
+                    <span class="prevNext">
+                        <!-- Show first button if page set has previous page-->
+                        <apex:commandLink value="" onClick="setCurrentPage(1, '1', {!dpCon.selectedPageNumber}, {!dpCon.totalPage});return false;" rendered="{!dpCon.selectedPageNumber != 1}" rerender="pageBlock" title="First" status="myStatus">
+                            <img class="first" src="/s.gif" alt="" />
+                        </apex:commandLink>
+                        
+                        <apex:outputPanel rendered="{!dpCon.selectedPageNumber == 1}">
+                            <img class="firstoff" src="/s.gif" alt="" />
+                        </apex:outputPanel>
+                    </span>
+                    
+                    <!-- Previous Button -->
+                    <span class="prevNext">
+                        <apex:commandLink value="" onClick="previous(1, {!dpCon.selectedPageNumber}, {!dpCon.totalPage});return false;" rendered="{!dpCon.selectedPageNumber> 1}" rerender="pageBlock" status="myStatus">
+                            <img class="prev" src="/s.gif" alt="" />Previous
+                        </apex:commandLink>
+                       
+                        <apex:outputPanel rendered="{!dpCon.selectedPageNumber == 1}">
+                            <img class="prevoff" src="/s.gif" alt="" />Previous
+                        </apex:outputPanel>
+                    </span>
+                    
+                  
+                    <span class="prevNext">
+                        <!-- Show next button if page set has next -->
+                        <apex:commandLink value="" onClick="next(1, {!dpCon.selectedPageNumber}, {!dpCon.totalPage});return false;" rendered="{!dpCon.totalPage >= (dpCon.selectedPageNumber+1)}" rerender="pageBlock" status="myStatus">
+                            Next<img class="next" alt="Next" title="Next" src="/s.gif" />
+                        </apex:commandLink>
+                       
+                        <apex:outputPanel rendered="{!dpCon.totalPage < (dpCon.selectedPageNumber+1)}">
+                            Next<img class="nextOff" alt="Next" title="Next" src="/s.gif" />
+                        </apex:outputPanel>
+                    </span>
+                    
+                    <!-- Last Button -->
+                    <span class="prevNext"> 
+                        <!-- Show last button if page set has next -->
+                        <apex:commandLink value="" onClick="setCurrentPage(1, '{!dpCon.totalPage}', {!dpCon.selectedPageNumber}, {!dpCon.totalPage});return false;" rendered="{!dpCon.selectedPageNumber < dpCon.totalPage}" title="Last" rerender="pageBlock" status="myStatus">
+                            <img class="last" src="/s.gif" alt="" />
+                        </apex:commandLink>
+                        
+                        <!-- Show disabled last button if page set has no next -->
+                        <apex:outputPanel rendered="{!dpCon.selectedPageNumber == dpCon.totalPage}">
+                            <img class="lastoff" src="/s.gif" alt="" />
+                        </apex:outputPanel>
+                    </span>
+                </span>
+                <span class="right">
+                    Page&nbsp;
+                    
+                    <apex:inputText value="{!dpPage}" html-readonly="true" styleClass="pageInput" onkeypress="return isNumber(event,this)">
+                        <apex:actionSupport event="onchange" rerender="frm" status="myStatus" oncomplete="enableInput();"/>
+                    </apex:inputText>
+                    
+                     of {!CEILING(dpCon.totalRecords / dpCon.pageSize)} 
+               
+                </span>
+            </div>
+        </apex:outputPanel>
+	</apex:pageBlock>
+	<apex:pageBlock title="Wholesalers">
+		<apex:pageBlockTable value="{!marketWSLRs}" var="ma" columnsWidth="70%,10%,10%,10%" columnClasses=",centerText,centerText,centerText">
+			<apex:column >
+	            <apex:facet name="header">
+	                <apex:outputText value="Name"/>
+	            </apex:facet>
+	            <apex:outputLink value="/apex/MRProgramAlignmentTasks?Id={!Milestone1_Project__c.Id}&accountId={!ma.account.Id}" target="_parent" rendered="{!ma.account.Id!=null}">
+	            {!ma.account.Name}
+	            </apex:outputLink>
+	            <apex:outputText value="{!IF(ma.account.Name=='--','&nbsp;',ma.account.Name)}" escape="false" rendered="{!ma.account.Id==null}" />
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Total Tasks"/>
+	            </apex:facet>
+	            <apex:outputText value="{!ma.totalTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Open Tasks"/>
+	            </apex:facet>
+	            <apex:outputText value="{!ma.openTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+			<apex:column headerClass="centerText">
+	            <apex:facet name="header">
+	                <apex:outputText value="Blocked Tasks"/>
+	            </apex:facet>
+	            <apex:outputText value="{!ma.blockedTasks}" rendered="{!ma.account.Id!=null}"/>
+			</apex:column>
+		</apex:pageBlockTable>
+		<apex:outputPanel layout="block" styleClass="paginatorWrap" rendered="{!AND(wslrCon.totalRecords > 0, NOT(ISNULL(wslrCon.pageSize)))}">
+            <div class="paginator">
+  
+                <span class="prevNextLinks">
+                  
+                     <span class="prevNext">
+                        <!-- Show first button if page set has previous page-->
+                        <apex:commandLink value="" onClick="setCurrentPage(2, '1', {!wslrCon.selectedPageNumber}, {!wslrCon.totalPage});return false;" rendered="{!wslrCon.selectedPageNumber != 1}" title="First" status="myStatus">
+                            <img class="first" src="/s.gif" alt="" />
+                        </apex:commandLink>
+                        
+                        <apex:outputPanel rendered="{!wslrCon.selectedPageNumber == 1}">
+                            <img class="firstoff" src="/s.gif" alt="" />
+                        </apex:outputPanel>
+                    </span>
+                    
+                    <!-- Previous Button -->
+                    <span class="prevNext">
+                        <apex:commandLink value="" onClick="previous(2, {!wslrCon.selectedPageNumber}, {!wslrCon.totalPage});return false;" rendered="{!wslrCon.selectedPageNumber> 1}" status="myStatus">
+                            <img class="prev" src="/s.gif" alt="" />Previous
+                        </apex:commandLink>
+                       
+                        <apex:outputPanel rendered="{!wslrCon.selectedPageNumber == 1}">
+                            <img class="prevoff" src="/s.gif" alt="" />Previous
+                        </apex:outputPanel>
+                    </span>
+                    
+                  
+                    <span class="prevNext">
+                        <!-- Show next button if page set has next -->
+                        <apex:commandLink value="" onClick="next(2, {!wslrCon.selectedPageNumber}, {!wslrCon.totalPage});return false;" rendered="{!wslrCon.totalPage >= (wslrCon.selectedPageNumber+1)}" status="myStatus">
+                            Next<img class="next" alt="Next" title="Next" src="/s.gif" />
+                        </apex:commandLink>
+                       
+                        <apex:outputPanel rendered="{!wslrCon.totalPage < (wslrCon.selectedPageNumber+1)}">
+                            Next<img class="nextOff" alt="Next" title="Next" src="/s.gif" />
+                        </apex:outputPanel>
+                    </span>
+                    
+                    <!-- Last Button -->
+                    <span class="prevNext"> 
+                        <!-- Show last button if page set has next -->
+                        <apex:commandLink value="" onClick="setCurrentPage(2, '{!wslrCon.totalPage}', {!wslrCon.selectedPageNumber}, {!wslrCon.totalPage});return false;" rendered="{!wslrCon.selectedPageNumber < wslrCon.totalPage}" title="Last" status="myStatus">
+                            <img class="last" src="/s.gif" alt="" />
+                        </apex:commandLink>
+                        
+                        <!-- Show disabled last button if page set has no next -->
+                        <apex:outputPanel rendered="{!wslrCon.selectedPageNumber == wslrCon.totalPage}">
+                            <img class="lastoff" src="/s.gif" alt="" />
+                        </apex:outputPanel>
+                    </span>
+                </span>
+                <span class="right">
+                    Page&nbsp;
+                    
+                    <apex:inputText value="{!wslrPage}" html-readonly="true" styleClass="pageInput" onkeypress="return isNumber(event,this)">
+                        <apex:actionSupport event="onchange" rerender="frm" status="myStatus" oncomplete="enableInput();"/>
+                    </apex:inputText>
+                    
+                     of {!CEILING(wslrCon.totalRecords / wslrCon.pageSize)} 
+               
+                </span>
+            </div>
+        </apex:outputPanel>
+	</apex:pageBlock>
+    </apex:outputPanel>
+</apex:form>
+</apex:page>

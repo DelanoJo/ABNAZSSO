@@ -1,0 +1,371 @@
+<!-- 
+    Copyright (C) 2014 TopCoder Inc., All Rights Reserved. 
+-->
+<!-- 
+    Product Search page
+
+    @author TCCODER 
+    @version 1.0    
+-->  
+<apex:page standardController="Milestone1_Project__c" extensions="ProductSearchController" id="thePage" tabStyle="Milestone1_Project__c" title="Product Search">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" />
+    <apex:styleSheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
+    
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+            /* this function creates the autocmplete input texts */
+            function createAutocomplete(filterInputId, fieldName){
+                j$('[id$='+filterInputId+']').autocomplete({
+                minLength: 3,
+                source: function(request, response) {
+                            var queryTerm = request.term || null;
+                            if(!queryTerm || queryTerm.length < 3){ return [];}
+                            Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.ProductSearchController.searchFilters}',
+                                queryTerm, fieldName, function(result, event){
+                                    if(event.type == 'exception') {
+                                          console.error(event.message);
+                                    } else {
+                                        console.log(result);
+                                         response(result);
+                                    }
+                            });
+                       },
+
+                select: function( event, ui ) {
+                            j$('[id$='+filterInputId+']').val( ui.item[fieldName] );
+                            __queryProducts();
+                            return false;
+                        },
+             })
+             .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                var entry = "<a>" + item[fieldName]+ "</a>";
+                return j$( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append( entry )
+                    .appendTo( ul );
+            };
+            //support for ENTER keypress
+            j$('[id$='+filterInputId+']').keyup(function(e){
+                if(e.keyCode == 13){
+                   __queryProducts();
+                }
+            });
+            
+            j$('[id$='+filterInputId+']').focus(function(){
+                //j$(this).val('');
+            });
+        }
+        
+        /*
+            Disabled selection checkboxes while loading 
+        */
+        function toggleCheckboxes(state){
+            j$('[id$=__selectedChkBox][existing="false"]').attr('disabled',!state);
+        }
+    </script>
+    
+    <style>
+         .btnPagination{
+            margin: 4px !important; 
+            text-decoration: none !important;
+            font-size:10pt !important;
+            background-image:none !important;
+            background-color: orange !important;
+            color: white !important;
+         }
+         
+         
+         .btnDisabled{
+            margin: 4px !important; 
+            text-decoration: none !important;
+            font-size:10pt !important;
+            background-image:none !important;
+            background-color: lightgray !important;
+            color: white !important;
+         }
+         
+         .displayNone { 
+            display:none; 
+        }
+        .displayBlock {
+            display:block;
+        }
+        .ui-autocomplete-loading { 
+            background: white url(/img/loading32.gif) right center no-repeat;
+            background-size:15px 15px; 
+        }
+        .placeHolder {
+            font-style: italic;
+        }
+        #filtercontainer ul li {
+            display: inline;
+        }
+        #filtercontainer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #filtercontainer li {
+            margin-left: 0;
+            margin-right: 1.5em;
+        }
+    </style>
+    
+    <apex:form id="theForm">
+        <script type="text/javascript">
+            //this lays here because of the rerender
+            j$(function(){
+                createAutocomplete('__searchName','Name');
+                //createAutocomplete('__searchProductCode','ProductCode');
+            });
+        </script>
+        
+        <apex:sectionHeader title="{!$Label.Product_Search_Page_Title}" subtitle="Program {!parent['Name']}" />
+        
+        <apex:outputPanel id="firstStep" rendered="{!isSecondStep == false}">
+            <!-- filter action -->
+            <apex:actionFunction action="{!loadData}" name="__queryProducts" rerender="theForm" status="loadingFilter"/>
+            
+            <apex:pageBlock title="Browse products" id="pb">
+                <p> 
+                    {!$Label.Product_Search_Step_1_Guide_Text}
+                </p>
+                <br/>
+                    
+                <!-- <apex:pageBlockSection title="{!$Label.Product_Search_Filters_title}" id="filters" columns="1" rendered="{!ISNULL(program)==false}" collapsible="false"> -->
+                    <apex:outputPanel style="width:100% !important">
+                        <div id="filtercontainer">
+                        <ul>
+                            <li>
+                                <apex:inputText id="__searchName" value="{!productName}" html-placeholder="{!$Label.Product_Search_Filter_Name_Placeholder}"/>
+                            </li>
+                            <li>
+                                <apex:selectList size="1" value="{!productBrand}" onchange="__queryProducts();">
+                                    <apex:selectOption itemvalue="" itemLabel="Brand Name"/>
+                                    <apex:selectoptions value="{!picklistMap['BRND_NM_US__c']}"/>
+                                </apex:selectList>
+                            </li>
+                            <li>
+                                <apex:selectList size="1" value="{!productFamily}" onchange="__queryProducts();">
+                                    <apex:selectOption itemvalue="" itemLabel="Brand Family"/>
+                                    <apex:selectoptions value="{!picklistMap['BRND_FAMLY_NM_US__c']}"/>
+                                </apex:selectList>
+                            </li>
+                        </ul>
+                        </div>
+                        <apex:outputPanel >
+                            <apex:actionStatus id="loadingFilter">
+                                <apex:facet name="start">
+                                    <apex:outputPanel >Filtering <apex:image value="/img/loading32.gif" width="15"/></apex:outputPanel>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                <apex:pageMessages />
+                <br/>
+                
+                <apex:pageBlockTable value="{!records}" var="p" id="results" rendered="{!ISNULL(parent)==false}">
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:inputCheckbox label="Select" value="{!selectedAll}">
+                                <apex:actionSupport event="onchange" action="{!selectAll}" rerender="firstStep,selectedItems,footer" onsubmit="toggleCheckboxes(false);" oncomplete="toggleCheckboxes(true);" />
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:outputPanel > 
+                            <apex:inputCheckbox value="{!p.selected}" id="__selectedChkBox" disabled="{!p.existing}" html-existing="{!p.existing}">
+                                <apex:actionSupport event="onchange" action="{!p.selectItem}" rerender="selectedItems"
+                                    onsubmit="toggleCheckboxes(false);" oncomplete="toggleCheckboxes(true);" />
+                            </apex:inputCheckbox>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'Name '),IF(CONTAINS(sortField,' ASC'),'Name DESC','Name'),'Name ASC')}" assignTo="{!sortField}"/>
+                                    <span >Name</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'Name ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'Name ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.Name}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'PDCN_CD_US__c '),IF(CONTAINS(sortField,' ASC'),'PDCN_CD_US__c DESC','PDCN_CD_US__c ASC'),'PDCN_CD_US__c ASC')}" assignTo="{!sortField}"/>
+                                    <span >PDCN Code</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'PDCN_CD_US__c ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'PDCN_CD_US__c ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.PDCN_CD_US__c}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'BRND_NM_US__c '),IF(CONTAINS(sortField,' ASC'),'BRND_NM_US__c DESC','BRND_NM_US__c ASC'),'BRND_NM_US__c ASC')}" assignTo="{!sortField}"/>
+                                    <span >Brand</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_NM_US__c ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_NM_US__c ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.BRND_NM_US__c}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'BRND_FAMLY_NM_US__c '),IF(CONTAINS(sortField,' ASC'),'BRND_FAMLY_NM_US__c DESC','BRND_FAMLY_NM_US__c ASC'),'BRND_FAMLY_NM_US__c ASC')}" assignTo="{!sortField}"/>
+                                    <span >Brand Family</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_FAMLY_NM_US__c ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_FAMLY_NM_US__c ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.BRND_FAMLY_NM_US__c}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'BRND_CTGY_NM_US__c '),IF(CONTAINS(sortField,' ASC'),'BRND_CTGY_NM_US__c DESC','BRND_CTGY_NM_US__c ASC'),'BRND_CTGY_NM_US__c ASC')}" assignTo="{!sortField}"/>
+                                    <span >Brand Category</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_CTGY_NM_US__c ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'BRND_CTGY_NM_US__c ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.BRND_CTGY_NM_US__c}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'SUBCTGY_NM_US__c '),IF(CONTAINS(sortField,' ASC'),'SUBCTGY_NM_US__c DESC','SUBCTGY_NM_US__c ASC'),'SUBCTGY_NM_US__c ASC')}" assignTo="{!sortField}"/>
+                                    <span >Brand Subcategory</span>
+                                </apex:commandLink>
+                                <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'SUBCTGY_NM_US__c ') && CONTAINS(sortField,' ASC')}"/>
+                                <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'SUBCTGY_NM_US__c ') && CONTAINS(sortField,' DESC')}"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <apex:outputField value="{!p.product.SUBCTGY_NM_US__c}"/>
+                        </apex:outputPanel>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockSection columns="2" id="pagination" rendered="{!ISNULL(parent)==false}">
+                    <apex:pageBlockSectionItem id="pageSize">
+                        <apex:outputPanel > 
+                            Show 
+                            <apex:selectList value="{!newPageSize}" size="1">
+                                <apex:actionSupport event="onchange" action="{!loadData}" />
+                                <apex:selectoption itemvalue="2" itemlabel="2 per page"/>
+                                <apex:selectoption itemvalue="10" itemlabel="10 per page"/>
+                                <apex:selectoption itemvalue="25" itemlabel="25 per page"/>
+                                <apex:selectoption itemvalue="50" itemlabel="50 per page"/>
+                                <apex:selectoption itemvalue="100" itemlabel="100 per page"/>
+                                <apex:selectoption itemvalue="200" itemlabel="200 per page"/>
+                            </apex:selectList>
+                            
+                            <span>Showing {!IF(resultSize < pageSize,resultSize,pageSize)} of {!resultSize} records</span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem id="pageNavigation">
+                        <apex:outputPanel id="paginator" >
+                            <apex:commandButton value="{!$Label.Product_Search_Button_First_Page}" styleClass="{!IF(pageNumber != 1,'btnPagination','btnDisabled')}" 
+                                                disabled="{!pageNumber == 1}" action="{!goToFirstPage}" />
+                            <apex:commandButton value="{!pageNumber-2}" styleClass="btnPagination" rendered="{!pageNumber > 2}" 
+                                                action="{!goToPrev2Page}" rerender="theForm" status="loadingFilter"/>
+                            <apex:commandButton value="{!pageNumber-1}" styleClass="btnPagination" rendered="{!pageNumber > 1}" 
+                                                action="{!goToPrevPage}" />
+                            <apex:commandButton disabled="true" styleClass="btnDisabled" value="{!pageNumber}" />
+                            <apex:commandButton value="{!pageNumber+1}" styleClass="btnPagination" rendered="{!totalPages >= (pageNumber+1)}" 
+                                                action="{!goToNextPage}" />
+                            <apex:commandButton value="{!pageNumber+2}" styleClass="btnPagination" rendered="{!totalPages >= (pageNumber+2)}" 
+                                                action="{!goToNext2Page}" />
+                            <apex:commandButton value="{!$Label.Product_Search_Button_Last_page}" styleClass="{!IF(pageNumber < totalPages,'btnPagination','btnDisabled')}" 
+                                                disabled="{!pageNumber >= totalPages}" action="{!goToLastPage}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:outputPanel id="selectedItems" rendered="{!ISNULL(parent)==false}">
+                    <apex:pageblockSection id="selectedItemsPBS" columns="1" rendered="{!itemsSelected}">
+                        <apex:pageBlockSectionItem >
+                            {!$Label.Product_Search_Step_1a_Guide_Text}
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockTable value="{!selectedProductsValues}" var="p" id="selItems">
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <span>{!$Label.Product_Search_Column_Action}</span>
+                                </apex:facet>
+                                <apex:outputPanel > 
+                                    <apex:commandLink onclick="toggleCheckboxes(false);" 
+                                                    oncomplete="toggleCheckboxes(true);" value="Remove" 
+                                                    action="{!p.removeSelected}" rerender="results, selectedItems" rendered="{!!p.existing}"/>
+                                </apex:outputPanel>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <span >{!$label.Product_Search_Column_Product_Name}</span>
+                                </apex:facet>
+                                <apex:outputPanel >
+                                    <apex:outputLink value="/{!p.product.Id}" target="_blank">
+                                        <apex:outputField value="{!p.product.Name}"/>
+                                    </apex:outputLink>
+                                </apex:outputPanel>
+                            </apex:column>
+
+                        </apex:pageBlockTable>
+                    </apex:pageblockSection>
+                    
+                    <apex:pageBlockSection columns="2" id="footer" > 
+                        <apex:pageBlockSectionItem >
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputPanel style="text-align:right" layout="block">
+                                <apex:commandButton value="Cancel" styleClass="btnPagination" action="{!cancel}"/>
+                                <apex:commandButton value="{!$Label.Product_Search_Button_Save}" disabled="{!itemsSelected == false}" 
+                                        styleClass="{!IF(itemsSelected,'btnPagination','btnDisabled')}"
+                                        action="{!saveData}"/>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                
+                </apex:outputPanel>
+                
+                
+            </apex:pageBlock>
+        
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

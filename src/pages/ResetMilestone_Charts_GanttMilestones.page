@@ -1,0 +1,46 @@
+<apex:page standardController="Space_Plan_Reset__c" extensions="ResetMilestone_Charts_Gantt_Helper" sidebar="false">
+        <script type="text/javascript"> 
+        var eventData = { 
+            event: "Event Listener", 
+            data: {}, 
+            iframeName : '', 
+            myHeight : '', 
+            buttonToHide : '' // button name should be handled via label/custom setting; leave this blank if you have an existing execute javascript button on the layout and don't need to hide that. 
+            } 
+        var evaluateHeight = function(){ 
+            var myHeight = 0; 
+            if( typeof( window.innerHeight ) == 'number' ) { 
+                //Non-IE 
+                myHeight = window.innerHeight; 
+            } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) { 
+                //IE 6+ in 'standards compliant mode'   
+                myHeight = document.documentElement.clientHeight; 
+            } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) { 
+                //IE 4 compatible   
+                myHeight = document.body.clientHeight; 
+            } 
+            if(document.body.offsetHeight && document.body.offsetHeight > 0){ 
+                myHeight = document.body.offsetHeight; 
+            } 
+            eventData.myHeight = myHeight; 
+            eventData.iframeName = window.name; 
+        } 
+        var messages = { 
+            setHeight : function(){ 
+                evaluateHeight(); 
+                parent.postMessage(JSON.stringify(eventData), "*"); 
+            } 
+        } 
+        var window_OnLoad = function(e) { 
+            messages.setHeight(); 
+        } 
+        CrossDomainUtility.addEvent(window, 'load', window_OnLoad); 
+    </script> 
+	<apex:form >
+		<apex:commandLink target="_self" action="{!cancel}" 
+					rendered="{!!allowView}" >{!$Label.Milestone1_Back}</apex:commandLink>
+  		<c:ResetMilestone_Charts_GanttComponent target="{!myId}"/>
+		<apex:outputLink target="_top" value="{!$Page.ResetMilestone_Charts_GanttMilestones}?Id={!myId}&p" 
+					rendered="{!allowView}">{!$Label.Milestone1_FullView}</apex:outputLink>	
+	</apex:form>
+</apex:page>

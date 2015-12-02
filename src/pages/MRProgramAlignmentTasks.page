@@ -1,0 +1,17 @@
+<apex:page StandardController="Milestone1_Project__c">
+    <apex:form >
+        <c:Related_List p_objectName="Milestone1_Task__c" 
+          p_fieldsCSV="Name,Project_Milestone__c,Task_Stage__c,Due_Date__c" 
+          p_pageSize="30"
+          p_parentFieldId="{!Milestone1_Project__c.Id}" 
+          p_parentFieldName="Project_Milestone__r.Project__c" 
+          p_orderByFieldName="Name"
+          p_sortDirection="asc"
+          p_filter="(Wholesaler__c = '{!$CurrentPage.parameters.accountId}' OR Retailer__c = '{!$CurrentPage.parameters.accountId}')"
+          p_title="Tasks"
+          p_returnUrl="/{!Milestone1_Project__c.Id}"
+          p_showAsStandardRelatedList="false"
+          p_hideButtons="true"
+          p_hideActionLinks="true"/>
+    </apex:form> 
+</apex:page>

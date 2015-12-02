@@ -1,0 +1,18 @@
+<apex:page standardController="M_Historical_Receipt_Printings__c"  renderAs="PDF" showheader="false" >
+
+<apex:outputtext value="*** Copy Number: {!M_Historical_Receipt_Printings__c.M_Copy_Number__c}  ***" styleClass="Fielddata"/>
+<table style="border-style:solid;border-width:1px;padding:10px;font-family:'Courier New', Courier, monospace;font-size:10px;">
+  <tr> <td>  
+<apex:outputfield value=" {!M_Historical_Receipt_Printings__c.M_HTML_First_Section__c}" styleClass="Fielddata"/>
+ 
+<apex:outputfield value=" {!M_Historical_Receipt_Printings__c.M_Siganture__c}" styleClass="Fielddata"/>
+
+<apex:outputfield value=" {!M_Historical_Receipt_Printings__c.M_HTML_Last_Section__c}" styleClass="Fielddata"/>
+
+  
+  
+  </td> </tr>
+</table>
+
+
+</apex:page>

@@ -1,0 +1,562 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "dg", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 48, 
+                "line": 24
+            }, 
+            "type": "Permission_Set_Assignment_Rules__c"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "mdata", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 25
+            }, 
+            "type": "Meta"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "DG_ROLE_AND_SUBORDINATES", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 3
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "ROLE_AND_SUBORDINATES", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 5
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "DG_PORTAL_ROLE", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 7
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "ROLE", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 9
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "DG_PARTNER_PORTAL", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 11
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "PARTNER_PORTAL", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 13
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public", 
+                "final"
+            ], 
+            "name": "DG_CUSTOMER_PORTAL", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 15
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "CUSTOMER_PORTAL", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 17
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "DG_USER", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 19
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static", 
+                "final"
+            ], 
+            "name": "WORKER", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 21
+            }, 
+            "type": "String"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [
+        {
+            "properties": [
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "objectName", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 192
+                    }, 
+                    "type": "String"
+                }, 
+                {
+                    "modifiers": [
+                        "private"
+                    ], 
+                    "name": "fields", 
+                    "visibility": "PRIVATE", 
+                    "references": [], 
+                    "location": {
+                        "column": 42, 
+                        "line": 193
+                    }, 
+                    "type": "Map"
+                }
+            ], 
+            "externalReferences": [], 
+            "innerClasses": [], 
+            "interfaces": [], 
+            "constructors": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "Meta", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "name"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 16, 
+                        "line": 195
+                    }, 
+                    "type": null
+                }
+            ], 
+            "namespace": null, 
+            "name": "Meta", 
+            "tableDeclaration": {
+                "type": "Meta", 
+                "modifiers": [
+                    "public"
+                ], 
+                "references": [], 
+                "location": {
+                    "column": 18, 
+                    "line": 191
+                }, 
+                "name": "Meta"
+            }, 
+            "key": null, 
+            "variables": [
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 28, 
+                        "line": 195
+                    }, 
+                    "name": "name"
+                }, 
+                {
+                    "type": "SObjectType", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 32, 
+                        "line": 197
+                    }, 
+                    "name": "ot"
+                }, 
+                {
+                    "type": "String", 
+                    "modifiers": [], 
+                    "references": [], 
+                    "location": {
+                        "column": 67, 
+                        "line": 201
+                    }, 
+                    "name": "recordField"
+                }
+            ], 
+            "id": null, 
+            "methods": [
+                {
+                    "modifiers": [
+                        "public"
+                    ], 
+                    "name": "getFieldDescribe", 
+                    "parameters": [
+                        {
+                            "type": "String", 
+                            "name": "recordField"
+                        }
+                    ], 
+                    "visibility": "PUBLIC", 
+                    "references": [], 
+                    "location": {
+                        "column": 43, 
+                        "line": 201
+                    }, 
+                    "returnType": "DescribeFieldResult", 
+                    "type": null
+                }
+            ]
+        }
+    ], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "QueryBuilder", 
+            "parameters": [
+                {
+                    "type": "Permission_Set_Assignment_Rules__c", 
+                    "name": "dg"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 28
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "QueryBuilder", 
+    "tableDeclaration": {
+        "type": "QueryBuilder", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "QueryBuilder"
+    }, 
+    "key": "01p55000000DcAyAAK", 
+    "variables": [
+        {
+            "type": "Permission_Set_Assignment_Rules__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 60, 
+                "line": 28
+            }, 
+            "name": "dg"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 87
+            }, 
+            "name": "criteria"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 88
+            }, 
+            "name": "s"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 92
+            }, 
+            "name": "query"
+        }, 
+        {
+            "type": "Set", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 101
+            }, 
+            "name": "queryParams"
+        }, 
+        {
+            "type": "Group_Rule__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 103
+            }, 
+            "name": "rule"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 104
+            }, 
+            "name": "queryParam"
+        }, 
+        {
+            "type": "Logical", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 105
+            }, 
+            "name": "operator"
+        }, 
+        {
+            "type": "DescribeFieldResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 44, 
+                "line": 108
+            }, 
+            "name": "f"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 117
+            }, 
+            "name": "value"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 125
+            }, 
+            "name": "s"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 37, 
+                "line": 139
+            }, 
+            "name": "s"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 47, 
+                "line": 168
+            }, 
+            "name": "str"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 59, 
+                "line": 172
+            }, 
+            "name": "value"
+        }
+    ], 
+    "id": "01p55000000DcAyAAK", 
+    "methods": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getQuery", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 19, 
+                "line": 86
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "getQueryParams", 
+            "parameters": [], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 100
+            }, 
+            "returnType": "Set", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "private", 
+                "static"
+            ], 
+            "name": "escape", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "str"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 168
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "convertDGFieldValue", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "value"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 172
+            }, 
+            "returnType": "String", 
+            "type": null
+        }
+    ]
+}

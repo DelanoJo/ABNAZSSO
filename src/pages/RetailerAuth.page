@@ -1,0 +1,31 @@
+<apex:page showHeader="true" sidebar="true">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+        function setStorePct(){
+            j$('select[data-id="Auth_Type__c"]').change(function() {
+                var pct = j$(':input:eq(' + (j$(':input').index(this) + 1) + ')');
+                var mandate = j$(this).find('option:selected').text();
+                if(mandate=='Mandate'){
+                    pct.val('100');
+                } else if(mandate=='Not Carried'){
+                    pct.val('0');
+                }
+            });
+        }
+
+        j$(document).ready(function() {
+            setStorePct();
+        });
+    </script>
+
+    <c:MRAccountProductComponent p_recordId="{!$CurrentPage.parameters.Id}"
+        p_initialAccountId="{!$CurrentPage.parameters.AccountId}"
+        p_fieldsCSV="Auth_Type__c,Est_Store_Pct__c,Est_Vol_Per_Outlet__c"
+        p_accountField="Retailer"
+        p_pageTitle="Retailer Authorization"
+        p_childObject="MR_Retailer_Product_Authorization__c"
+        p_accountType="Retailer"
+        p_rerenderJS="setStorePct();"/>
+
+</apex:page>

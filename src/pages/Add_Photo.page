@@ -1,0 +1,35 @@
+<apex:page standardcontroller="Contact" extensions="UploadFile">
+
+<!-- <apex:outputtext value="{!Contact.User__c}" rendered="false"></apex:outputtext> -->
+<apex:outputtext value="{!Contact.Image_Id__c}" rendered="false"></apex:outputtext>
+<apex:sectionHeader title="Visualforce Cloudspokes challenge" subtitle="Upload Contact Image"/>
+  <apex:form id="theForm" enctype="multipart/form-data">
+      <apex:pageMessages />
+      <apex:pageBlock title="Upload your picture">
+      
+        <apex:pageBlockButtons >
+          <apex:commandButton action="{!savefile}" value="Save"/>
+          <apex:commandButton action="{!cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection showHeader="false" columns="2" id="block1">
+   
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="File Name" for="fileName"/>
+            <apex:inputText value="{!d.name}" id="fileName" />
+          </apex:pageBlockSectionItem>
+     
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="File" for="file"/>
+            <apex:inputFile id="contactPicture" value="{!d.body}" filename="{!d.name}" fileSize="{!d.bodyLength}"/>
+          </apex:pageBlockSectionItem>
+     
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Description" for="description"/>
+            <apex:inputTextarea value="{!d.description}" id="description"/>
+          </apex:pageBlockSectionItem>
+   
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>

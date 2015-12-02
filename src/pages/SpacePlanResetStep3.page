@@ -1,0 +1,374 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name:
+ * Description: T-433463 Step 1 for Space Plan Reset Wizard
+ * Created Date: 17 Sept 2015
+ * Created By: Poonam Varyani (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+-->
+<apex:page standardController="Space_Plan_Reset__c" extensions="SpacePlanResetExtension" tabStyle="New_Reset_Project_Wizard__tab" title="Space Plan Reset">
+
+  <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+  <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" />
+  <apex:styleSheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
+  <style>
+    .btnPagination{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: orange !important;
+      color: white !important;
+    }
+    
+    .btnDisabled{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: lightgray !important;
+      color: white !important;
+    }
+    
+    .pagination {
+      font-size: 80%;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      border: solid 1px #AAE;
+      color: #15B;
+    }
+    .pagination a, .pagination span {
+      display: block;
+      float: left;
+      padding: 0.3em 0.5em;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .pagination .current {
+      background: #5E82A3;
+      color: #fff;
+      border: solid 1px #AAE;
+      text-decoration:none;
+    }
+    .pagination .notPrevious, .pagination .notNext{
+      color:#999;
+      border-color:#999;
+      background:#fff;
+      text-decoration:none;
+      pointer-events: none;
+      cursor: default;
+    }
+    .next {
+      text-decoration:underline
+    }
+    .prev {
+      text-decoration:underline
+    }
+    #filtercontainer ul li {
+      display: inline;
+    }
+    #filtercontainer ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+        #filtercontainer ul li {
+      display: inline;
+    }
+    #filtercontainer ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    #filtercontainer li {
+      margin-left: 0;
+      margin-right: 1.5em;
+    }
+    .ui-autocomplete-loading { 
+      background: white url(/img/loading32.gif) right center no-repeat;
+      background-size:15px 15px; 
+    }
+  </style>
+  <script>
+    var j$ = jQuery.noConflict();
+
+    /* this function creates the autocmplete input texts */
+    function createAutocomplete(filterInputId, fieldName){
+      j$('[id$='+filterInputId+']').autocomplete({
+        minLength: 2,
+        source: function(request, response) {
+          var queryTerm = request.term || null;
+          var rt = j$('[id$=recordTypes]').val();
+          if(!queryTerm || queryTerm.length < 2){ return [];}
+          Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.SpacePlanResetExtension.searchFilters}',
+            queryTerm, fieldName, rt, function(result, event){
+              if(event.type == 'exception') {
+                console.error(event.message);
+              } else {
+                response(result);
+              }
+            });
+        },
+
+        select: function( event, ui ) {
+          var field = fieldName.indexOf(".") >- 1 ? fieldName.split(".")[1] : fieldName;
+          j$('[id$='+filterInputId+']').val( ui.item[field] );
+          __queryAccounts();
+          return false;
+        },
+      })
+      .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        var field = fieldName.indexOf(".") >- 1 ? fieldName.split(".")[1] : fieldName;
+        var entry = "<a>" + item[field] + "</a>";
+        return j$( "<li></li>" )
+        .data( "item.autocomplete", item )
+        .append( entry )
+        .appendTo( ul );
+      };
+      //support for ENTER keypress
+      j$('[id$='+filterInputId+']').keyup(function(e){
+        if(e.keyCode == 13){
+          __queryAccounts();
+        }
+      });
+
+      j$('[id$='+filterInputId+']').focus(function(){
+      //j$(this).val('');
+      });
+    }
+
+  /*
+    Disabled selection checkboxes while loading 
+    */
+    function toggleCheckboxes(state){
+      j$('[id$=__selectedChkBox]').attr('disabled',!state);
+    }
+
+    function setCurrentPage(currentCon, index, currentIndex, numberOfLinks) {
+      if(currentIndex != index) {
+        currentIndex = parseInt(index);
+        getpage(currentCon, currentIndex);
+      }
+    }
+    function setStyle(currentCon, currentIndex, numberOfLinks) {
+      if(currentIndex == numberOfLinks) {
+        j$("#nextUp" + currentCon).removeClass("next").addClass("notNext");
+        j$("#last" + currentCon).removeClass("next").addClass("notNext");
+      } else {
+        j$("#nextUp" + currentCon).removeClass("notNext").addClass("next");
+        j$("#last" + currentCon).removeClass("notNext").addClass("next");
+      }
+      if(currentIndex == 1) {
+        j$("#previousUp" + currentCon).removeClass("prev").addClass("notPrevious");
+        j$("#first" + currentCon).removeClass("prev").addClass("notPrevious");
+      } else {
+        j$("#previousUp" + currentCon).removeClass("notPrevious").addClass("prev");
+        j$("#first" + currentCon).removeClass("notPrevious").addClass("prev");
+      }
+    }
+    function next(currentCon, currentIndex, numberOfLinks) {
+      if(currentIndex < numberOfLinks) {
+        currentIndex = currentIndex + 1;
+        getpage(currentCon, currentIndex);
+      }
+    }
+    function previous(currentCon, currentIndex, numberOfLinks) {
+      if(currentIndex > 1) {
+        currentIndex = currentIndex - 1;
+        getpage(currentCon, currentIndex); 
+      }
+    }
+  </script>
+  <apex:sectionHeader title="Space Plan Reset" subtitle="Create New Space Plan" />
+  <apex:form >
+    <script type="text/javascript">
+      //this lays here because of the rerender
+      j$(function(){
+        createAutocomplete('__searchName','Name');
+      });
+    </script>
+    <apex:pageMessages id="pgMessages"/>
+
+    <!-- filter action -->
+    <apex:actionFunction action="{!loadData}" name="__queryAccounts" rerender="resultsPanel" status="loadingFilter"/>
+
+    <!-- filter action -->
+    <apex:actionFunction name="getpage" action="{!setPage}" rerender="selectedItems">
+          <apex:param value="" assignTo="{!curCon}" name="currentController" />
+          <apex:param value="" assignTo="{!newConPage}" name="newPageNum" />
+        </apex:actionFunction>
+    <apex:pageBlock title="Account Selection" id="accountSelection">
+    
+    <!-- <apex:pageBlockSection columns="1"> -->
+          <div id="filtercontainer" style="width: 100%;">
+            <ul>
+              <li>
+                <apex:outputLabel value="Account Name " />
+                <apex:inputText id="__searchName" value="{!accountName}" />
+              </li>
+              <li>
+                <apex:outputLabel value="Record Type " for="recordTypes"/>
+                <apex:selectList value="{!selectedRecordType}" size="1" id="recordTypes">
+                  <apex:selectOptions value="{!AccountRecordTypes}" />
+                  <apex:actionSupport event="onchange" reRender="resultsPanel,selectedItems,footer,pgMessages" action="{!loadData}"/>
+                </apex:selectList>
+              </li>
+            </ul>
+            <apex:outputPanel >
+              <apex:actionStatus id="loadingFilter">
+                <apex:facet name="start">
+                  <apex:outputPanel ><br/>Filtering <apex:image value="/img/loading32.gif" width="15"/></apex:outputPanel>
+                </apex:facet>
+              </apex:actionStatus>
+            </apex:outputPanel>
+          </div>
+          <br/>
+
+<!--           <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Record Type" for="recordTypes"/>
+            <apex:selectList value="{!selectedRecordType}" size="1" id="recordTypes">
+                <apex:selectOptions value="{!AccountRecordTypes}" />
+                 <apex:actionSupport event="onchange" reRender="resultsPanel,selectedItems,footer" action="{!loadData}"/>
+            </apex:selectList>
+          </apex:pageBlockSectionItem> -->
+
+        <!-- </apex:pageBlockSection> -->
+        
+            <apex:outputPanel id="resultsPanel">
+          <apex:pageBlockTable value="{!records}" var="p" id="results" >
+            <apex:column headerClass="selectColumn" >
+              <apex:facet name="header">
+                <apex:inputCheckbox label="Select" value="{!selectedAll}">
+                  <apex:actionSupport event="onchange" action="{!selectAll}" rerender="resultsPanel,selectedItems,footer,pgMessages" onsubmit="toggleCheckboxes(false);" oncomplete="toggleCheckboxes(true);" />
+                </apex:inputCheckbox>
+              </apex:facet>
+              <apex:outputPanel > 
+                <apex:inputCheckbox value="{!p.selected}" id="__selectedChkBox" >
+                  <apex:actionSupport event="onchange" action="{!p.selectItem}" rerender="resultsPanel,selectedItems,footer" onsubmit="toggleCheckboxes(false);" oncomplete="toggleCheckboxes(true);" />
+                </apex:inputCheckbox>
+              </apex:outputPanel>
+            </apex:column>
+
+            <apex:column >
+              <apex:facet name="header">
+                <apex:outputPanel >
+                  <apex:commandLink action="{!sortRecordset}" rerender="theForm" status="loadingFilter">
+                    <apex:param name="sf" value="{!IF(BEGINS(sortField,'Name '),IF(CONTAINS(sortField,' ASC'),'Name DESC','Name ASC'),'Name ASC')}" assignTo="{!sortField}"/>
+                    <span >Retailer</span>
+                  </apex:commandLink>
+                  <apex:image value="/img/sort_asc_arrow.gif" rendered="{!BEGINS(sortField,'Name ') && CONTAINS(sortField,' ASC')}"/>
+                  <apex:image value="/img/sort_desc_arrow.gif" rendered="{!BEGINS(sortField,'Name ') && CONTAINS(sortField,' DESC')}"/>
+                </apex:outputPanel>
+              </apex:facet>
+              <apex:outputPanel >
+                <apex:outputLink value="/{!p.account.Id}" target="_blank">
+                  <apex:outputField value="{!p.account.Name}"/>
+                </apex:outputLink>
+              </apex:outputPanel>
+            </apex:column>            
+          </apex:pageBlockTable>
+          <apex:pageBlockSection columns="2" id="pagination" >
+            <apex:pageBlockSectionItem id="pageSize">
+              <apex:outputPanel > 
+                Show 
+                <apex:selectList value="{!newPageSize}" size="1">
+                  <apex:actionSupport event="onchange" action="{!loadData}" />
+                  <apex:selectoption itemvalue="2" itemlabel="2 per page"/>
+                  <apex:selectoption itemvalue="10" itemlabel="10 per page"/>
+                  <apex:selectoption itemvalue="25" itemlabel="25 per page"/>
+                  <apex:selectoption itemvalue="50" itemlabel="50 per page"/>
+                  <apex:selectoption itemvalue="100" itemlabel="100 per page"/>
+                  <apex:selectoption itemvalue="200" itemlabel="200 per page"/>
+                </apex:selectList>
+                <span>Showing {!IF(resultSize < pageSize,resultSize,pageSize)} of {!resultSize} records</span>
+              </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem id="pageNavigation">
+              <apex:outputPanel id="paginator" >
+                <apex:commandButton value="{!$Label.Product_Search_Button_First_Page}" styleClass="{!IF(pageNumber != 1,'btnPagination','btnDisabled')}" disabled="{!pageNumber == 1}" action="{!goToFirstPage}" reRender="resultsPanel"/>
+                <apex:commandButton value="{!pageNumber-2}" styleClass="btnPagination" rendered="{!pageNumber > 2}" action="{!goToPrev2Page}" rerender="resultsPanel" />
+                <apex:commandButton value="{!pageNumber-1}" styleClass="btnPagination" rendered="{!pageNumber > 1}" action="{!goToPrevPage}" reRender="resultsPanel"/>
+                <apex:commandButton disabled="true" styleClass="btnDisabled" value="{!pageNumber}" />
+                <apex:commandButton value="{!pageNumber+1}" styleClass="btnPagination" rendered="{!totalPages >= (pageNumber+1)}" action="{!goToNextPage}" reRender="resultsPanel"/>
+                <apex:commandButton value="{!pageNumber+2}" styleClass="btnPagination" rendered="{!totalPages >= (pageNumber+2)}" action="{!goToNext2Page}" reRender="resultsPanel"/>
+                <apex:commandButton value="{!$Label.Product_Search_Button_Last_page}" styleClass="{!IF(pageNumber < totalPages,'btnPagination','btnDisabled')}" disabled="{!pageNumber >= totalPages}" action="{!goToLastPage}" reRender="resultsPanel" />
+              </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          
+          <apex:outputPanel id="selectedItems" >
+          <apex:PageBlockSection id="selectedItemsPBS" columns="1" rendered="{!itemsSelected}">
+            <apex:outputPanel >
+              <apex:pageBlockTable value="{!selectedAccountsValues}" var="p">
+
+                <apex:column headerClass="removeColumn" >
+                  <apex:facet name="header">
+                    <span>{!$Label.Product_Search_Column_Action}</span>
+                  </apex:facet>
+                  <apex:outputPanel > 
+                    <apex:commandLink onclick="toggleCheckboxes(false);" value="Remove" action="{!p.removeSelected}" rerender="results,selectedItems,footer" />
+                  </apex:outputPanel>
+                </apex:column>
+                <apex:column headerValue="Retailer" value="{!p.account.Name}"/>
+              </apex:pageBlockTable>
+
+              <script>setStyle(0, {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});</script>
+            </apex:outputPanel>
+          </apex:PageBlockSection>
+
+          <apex:pageBlockSection columns="2" id="selectedPagination" rendered="{!itemsSelected}">
+            <apex:pageBlockSectionItem id="selectedPageSize">
+              <apex:outputPanel > 
+              Show 
+                <apex:selectList value="{!retailerCon.pageSize}" size="1">
+                  <apex:actionSupport event="onchange" reRender="selectedItems" />
+                  <apex:selectoption itemvalue="2" itemlabel="2 per page"/>
+                  <apex:selectoption itemvalue="10" itemlabel="10 per page"/>
+                  <apex:selectoption itemvalue="25" itemlabel="25 per page"/>
+                  <apex:selectoption itemvalue="50" itemlabel="50 per page"/>
+                  <apex:selectoption itemvalue="100" itemlabel="100 per page"/>
+                  <apex:selectoption itemvalue="200" itemlabel="200 per page"/>
+                </apex:selectList>
+                <span>Showing {!IF(retailerCon.totalRecords < retailerCon.pageSize,retailerCon.totalRecords,retailerCon.pageSize)} of {!retailerCon.totalRecords} records</span>
+              </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="pageNavigation">
+              <apex:outputPanel id="paginator" >
+                <apex:commandButton value="{!$Label.Product_Search_Button_First_Page}" styleClass="{!IF(retailerCon.selectedPageNumber != 1,'btnPagination','btnDisabled')}" disabled="{!retailerCon.selectedPageNumber == 1}" onClick="setCurrentPage(1, '1', {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;" />
+                <apex:commandButton value="{!retailerCon.selectedPageNumber-2}" styleClass="btnPagination" rendered="{!retailerCon.selectedPageNumber > 2}" onClick="previous(1, {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;"/>
+                <apex:commandButton value="{!retailerCon.selectedPageNumber-1}" styleClass="btnPagination" rendered="{!retailerCon.selectedPageNumber> 1}" onClick="previous(1, {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;"/>
+                <apex:commandButton disabled="true" styleClass="btnDisabled" value="{!retailerCon.selectedPageNumber}" />
+                <apex:commandButton value="{!retailerCon.selectedPageNumber+1}" styleClass="btnPagination" rendered="{!retailerCon.totalPage >= (retailerCon.selectedPageNumber+1)}" onClick="next(1, {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;"/>
+                <apex:commandButton value="{!retailerCon.selectedPageNumber+2}" styleClass="btnPagination" rendered="{!retailerCon.totalPage >= (retailerCon.selectedPageNumber+2)}" onClick="next(1, {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;"/>
+                <apex:commandButton value="{!$Label.Product_Search_Button_Last_page}" styleClass="{!IF(retailerCon.selectedPageNumber < retailerCon.totalPage,'btnPagination','btnDisabled')}" onClick="setCurrentPage(1, '{!retailerCon.totalPage}', {!retailerCon.selectedPageNumber}, {!retailerCon.totalPage});return false;" disabled="{!retailerCon.selectedPageNumber >= retailerCon.totalPage}" />
+              </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          </apex:outputPanel>
+      </apex:outputPanel>
+        
+
+      <apex:pageBlockSection columns="2" id="footer" > 
+        <apex:pageBlockSectionItem >
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputPanel style="text-align:right" layout="block">
+                <apex:commandButton value="Cancel" styleClass="btnPagination" action="{!cancel}"/>
+                <apex:commandButton action="{!step2}" value="Previous" styleClass="btnPagination"/>
+                <apex:commandButton action="{!step4}" value="Next"  disabled="{!itemsSelected == false}" 
+              styleClass="{!IF(itemsSelected,'btnPagination','btnDisabled')}"/>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

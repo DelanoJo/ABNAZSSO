@@ -1,0 +1,217 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "query", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 16, 
+                "line": 3
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "remove", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 4
+            }, 
+            "type": "Boolean"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "ids", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 5
+            }, 
+            "type": "Set"
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "PermissionSets", 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 6
+            }, 
+            "type": "LIST"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [
+        "Database.Batchable", 
+        "Database.Stateful"
+    ], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "BatchUpdatePermissionAssignments", 
+    "tableDeclaration": {
+        "type": "BatchUpdatePermissionAssignments", 
+        "modifiers": [
+            "global"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 14, 
+            "line": 1
+        }, 
+        "name": "BatchUpdatePermissionAssignments"
+    }, 
+    "key": "01p55000000DcB8AAK", 
+    "variables": [
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 63, 
+                "line": 9
+            }, 
+            "name": "BC"
+        }, 
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 51, 
+                "line": 14
+            }, 
+            "name": "BC"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 96, 
+                "line": 14
+            }, 
+            "name": "scope"
+        }, 
+        {
+            "type": "Permission_Set_Assignment_Rules__c", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 17
+            }, 
+            "name": "p"
+        }, 
+        {
+            "type": "QueryBuilder", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 18
+            }, 
+            "name": "builder"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 11, 
+                "line": 19
+            }, 
+            "name": "query"
+        }, 
+        {
+            "type": "BatchableContext", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 47, 
+                "line": 31
+            }, 
+            "name": "BC"
+        }
+    ], 
+    "id": "01p55000000DcB8AAK", 
+    "methods": [
+        {
+            "modifiers": [
+                "global"
+            ], 
+            "name": "start", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "BC"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 9
+            }, 
+            "returnType": "QueryLocator", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "global"
+            ], 
+            "name": "execute", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "BC"
+                }, 
+                {
+                    "type": "LIST", 
+                    "name": "scope"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 17, 
+                "line": 14
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "global"
+            ], 
+            "name": "finish", 
+            "parameters": [
+                {
+                    "type": "BatchableContext", 
+                    "name": "BC"
+                }
+            ], 
+            "visibility": "GLOBAL", 
+            "references": [], 
+            "location": {
+                "column": 14, 
+                "line": 31
+            }, 
+            "returnType": "void", 
+            "type": null
+        }
+    ]
+}

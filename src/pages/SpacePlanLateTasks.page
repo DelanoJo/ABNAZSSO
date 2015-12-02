@@ -1,0 +1,28 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name:
+ * Description: T-433601
+ * Created Date: 18 Sep 2015
+ * Created By: Poonam (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+-->
+<apex:page StandardController="Space_Plan_Reset__c" extensions="SpacePlanLateTasksCtrl">
+    <apex:form >
+        <c:Related_List p_objectName="Reset_Tasks__c" 
+          p_fieldsCSV="Name,Milestone__r.Name,Due_Date__c,Blocked__c,Blocked_Reason__c" 
+          p_pageSize="5"
+          p_parentFieldId="{!Space_Plan_Reset__c.Id}" 
+          p_parentFieldName="Milestone__r.Reset__c" 
+          p_orderByFieldName="Due_Date__c" 
+          p_sortDirection="asc"
+          p_filter="Due_Date__c <= TODAY AND Complete__c = false"
+          p_title="Late Tasks"
+          p_returnUrl="/{!Space_Plan_Reset__c.Id}"
+          p_showAsStandardRelatedList="true"
+          p_hideButtons="true"
+          p_hideActionLinks="true"/>
+    </apex:form>  
+</apex:page>

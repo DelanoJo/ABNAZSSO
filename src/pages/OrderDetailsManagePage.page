@@ -1,0 +1,101 @@
+<apex:page standardController="M_Order_sigcap_Header__c"
+	extensions="OrderDetailsManageCon">
+	<apex:Messages />
+
+	<apex:sectionHeader title="{!buttonName}"
+		subtitle="{!M_Order_sigcap_Header__c.Name}" description="" />
+	<apex:outputlink value="/{!M_Order_sigcap_Header__c.Id}">{!$ObjectType.M_Order_sigcap_Header__c.Label}: {!M_Order_sigcap_Header__c.Name}</apex:outputlink>
+	<apex:outputPanel id="errorMsg" rendered="{!orderIsReadOnly}">
+		<apex:pageMessage summary="Order Is Read Only!" severity="error"
+			strength="1" />
+	</apex:outputPanel>
+	<apex:outputPanel id="ThePage" rendered="{!NOT(orderIsReadOnly)}">
+		<apex:pageBlock title="Item Prices" id="ip">
+			<apex:pageBlockButtons location="top">
+				<apex:form >
+					<apex:commandButton value="{!$Label.buzz_retail__close}"
+						action="{!Close}" />
+				</apex:form>
+			</apex:pageBlockButtons>
+
+			<buzz_retail:fastGrid componentId="gridItemPrices"
+				nameSpace="{!nameSpace}"
+				objectName="{!$ObjectType.M_Item_Price__c.Name}"
+				fieldSet="{!$ObjectType.M_Item_Price__c.FieldSets.ItemPrice}"
+				fieldList="{!$ObjectType.M_Item_Price__c.Fields}" height="200"
+				widthPercent="100" select="multi" dataLoadFunc="JvloadItemPrices"
+				autoExpandColumn="true" allowDelete="false" allowUpdate="false"
+				allowCreate="false" allowShortHeader="false" startHidden="false" />
+		</apex:pageBlock>
+
+		<apex:outputPanel id="panelButtons" style="text-align:center">
+			<apex:form >
+				<apex:panelGrid style="text-align:center">
+					<br />
+					<br />
+					<br />
+					<apex:commandButton status="status" value="{!buttonName}"
+						onclick="processSelectedItemPrices();" rerender="nothing" />
+				</apex:panelGrid>
+			</apex:form>
+		</apex:outputPanel>
+
+		<apex:form >
+			<apex:actionFunction status="status" name="jsProcessSelectedProducts"
+				action="{!addOrderItems}" oncomplete="reloadgrids();"
+				rerender="nothing">
+				<apex:param name="selectedItemPriceIds"
+					assignTo="{!selectedPriceItemIdString}" value="" />
+			</apex:actionFunction>
+		</apex:form>
+
+		<apex:pageBlock title="Order Details" rendered="{!IsOrder}">
+			<buzz_retail:fastGrid componentId="OrderDetails"
+				nameSpace="{!nameSpace}"
+				objectName="{!$ObjectType.M_Order_Detail__c.Name}"
+				fieldSet="{!$ObjectType.M_Order_Detail__c.FieldSets.OrderDetail}"
+				fieldList="{!$ObjectType.M_Order_Detail__c.Fields}"
+				dataLoadFunc="loadOrderDetails" height="200" widthPercent="100"
+				select="multi" onAfterNewRecord="loadedrecord"
+				autoExpandColumn="true" allowCreate="false" allowDelete="false"
+				allowUpdate="true" allowFilter="true" allowShortHeader="false" />
+		</apex:pageBlock>
+
+		<apex:pageBlock title="Return Details" rendered="{!IsReturn}">
+			<buzz_retail:fastGrid componentId="OrderDetails"
+				nameSpace="{!nameSpace}"
+				objectName="{!$ObjectType.M_Order_Detail__c.Name}"
+				fieldSet="{!$ObjectType.M_Order_Detail__c.FieldSets.ReturnDetail}"
+				fieldList="{!$ObjectType.M_Order_Detail__c.Fields}"
+				dataLoadFunc="loadReturnDetails" height="200" widthPercent="100"
+				select="multi" onAfterNewRecord="loadedrecord"
+				autoExpandColumn="true" allowCreate="false" allowDelete="false"
+				allowUpdate="true" allowFilter="true" allowShortHeader="false" />
+		</apex:pageBlock>
+	</apex:outputPanel>
+
+
+	<script type="text/javascript">
+	function JvloadItemPrices(handler) {
+		OrderDetailsManageCon.loadItemPrices('{!M_Order_sigcap_Header__c.Id}',handler);
+	}
+	function processSelectedItemPrices() {
+	    jsProcessSelectedProducts(getSelectedIds_gridItemPrices().toString());
+	}
+    function loadOrderDetails(handler) {
+           OrderDetailsManageCon.loadOrderDetails('{!M_Order_sigcap_Header__c.Id}', 'Order', handler);
+    }
+    function loadReturnDetails(handler) {
+           OrderDetailsManageCon.loadOrderDetails('{!M_Order_sigcap_Header__c.Id}', 'Return', handler);
+    }
+    function reloadgrids() {
+        if(typeof loaddata_OrderDetails == 'function') { 
+            loaddata_OrderDetails();
+        }
+        if(typeof loaddata_gridItemPrices == 'function') { 
+            loaddata_gridItemPrices();
+        }
+    }
+</script>
+
+</apex:page>

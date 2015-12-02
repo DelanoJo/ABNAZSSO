@@ -1,0 +1,152 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name:
+ * Description: [T-433601]
+ * Created Date: 16 September 2015
+ * Created By: Poonam Varyani (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+--> 
+<apex:page Standardcontroller="Space_Plan_Reset__c" extensions="SpaceResetMilestoneProgressExt" showHeader="false" standardStyleSheets="false" doctype="html-5.0" >
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            var container = $j('#crumbs'),
+                scrollTo = $j('.crumbsInProgress'),
+                previous = $j('.crumbsInProgress').parent().prev('li').children('a');
+
+            container.scrollLeft(scrollTo.offset().left - previous.outerWidth() - 10 - container.offset().left + container.scrollLeft());
+        });
+    </script> 
+    <style>
+        a {
+            text-decoration: none; /* no underline */
+            color: black;
+        }
+        li {
+            line-height: 20px;
+        }
+        #crumbs {
+            text-align: center;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            /*overflow-x: hidden;*/
+            display: inline-block;
+            white-space: nowrap;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        #crumbs ul {
+            list-style: none;
+            display: inline-table;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            -webkit-padding-start: 0px;
+        }
+        #crumbs ul li {
+            display: inline-block;
+        }
+
+        #crumbs ul li a {
+            display: block;
+            float: left;
+            height: 20px;
+            /*background: #3498db;*/
+            text-align: center;
+            padding: 5px 20px 5px 40px;
+            position: relative;
+            margin: 0 5px 0 0;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .crumbsInProgress {
+            background: #4BCA81;
+        }
+        .crumbsNotStarted {
+            background: #54698D;
+        }
+        .crumbsLate {
+            background: #C23934;
+        }
+        .crumbsComplete {
+            background: #33b068;
+        }
+        .crumbsInProgress:after {
+            content: "";  
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #4BCA81;
+            position: absolute; right: -15px; top: 0;
+            z-index: 1;
+        }
+        .crumbsNotStarted:after {
+            content: "";  
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #54698D;
+            position: absolute; right: -15px; top: 0;
+            z-index: 1;
+        }
+        .crumbsLate:after {
+            content: "";  
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #C23934;
+            position: absolute; right: -15px; top: 0;
+            z-index: 1;
+        }
+        .crumbsComplete:after {
+            content: "";  
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #33b068;
+            position: absolute; right: -15px; top: 0;
+            z-index: 1;
+        }
+
+        #crumbs ul li a:before {
+            content: "";  
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+            position: absolute; left: 0; top: 0;
+        }
+
+        #crumbs ul li:first-child a {
+            border-top-left-radius: 15px; border-bottom-left-radius: 15px;
+        }
+        #crumbs ul li:first-child a:before {
+            display: none; 
+        }
+
+        #crumbs ul li:last-child a {
+            padding-right: 40px;
+            border-top-right-radius: 15px; border-bottom-right-radius: 15px;
+        }
+        #crumbs ul li:last-child a:after {
+            display: none; 
+        }
+
+        #crumbs ul li a:hover {
+            background: #BABBBE;
+            color: #00396B;
+        }
+        #crumbs ul li a:hover:after {
+            border-left-color: #BABBBE;
+        }
+    </style>
+
+    <apex:form id="theform">
+        <div id="crumbs">
+            <ul>
+                <apex:repeat value="{!steps}" var="s">
+                    <li><a class="{!IF(s.Status__c = 'In Progress', 'crumbsInProgress', IF(s.Status__c = 'Complete', 'crumbsComplete',IF(s.Deadline__c != null && s.Deadline__c < TODAY(), 'crumbsLate','crumbsNotStarted')))}" href="/{!s.Id}" target="_parent">{!s.Name}</a></li>
+                </apex:repeat>
+            </ul>
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,189 @@
+<!--
+/**=====================================================================
+ * Appirio, Inc
+ * Page Name:
+ * Description: T-433463 Step 2 for Space Plan Reset Wizard
+ * Created Date: 17 Sept 2015
+ * Created By: Poonam Varyani (Appirio)
+ * 
+ * Date Modified                Modified By                  Description of the update
+ =====================================================================*/
+-->
+<apex:page standardController="Space_Plan_Reset__c" extensions="SpacePlanResetExtension" tabStyle="New_Reset_Project_Wizard__tab" title="Space Plan Reset">
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <style>
+    .btnPagination{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: orange !important;
+      color: white !important;
+    }
+    .btnDisabled{
+      margin: 4px !important; 
+      text-decoration: none !important;
+      font-size:10pt !important;
+      background-image:none !important;
+      background-color: lightgray !important;
+      color: white !important;
+    }
+  </style>
+  <script>
+    $j = jQuery.noConflict();
+    $j(document).ready(function() {
+        $j('.projectSTR').keypress(function(event){
+          if (event.keyCode == 10 || event.keyCode == 13) 
+              event.preventDefault();
+          });
+    });
+    
+    function populateName() {
+      var accountName = $j('.accountName').val();
+      console.log('accountName >>>> '+ accountName);
+      var spacePlan = $j('[id*="spacePlan"]').val();
+      if(accountName != 'undefined' && accountName != '') {
+      console.log('here >>>> '+accountName);
+        $j('[id*="prodName"]').val(productName);
+        //var resetSeaon = $j('.projectRegion').find(":selected").text();
+        var resetSeaon = $j('.resetSeaon :selected').val();
+        var resetDate = $j('.resetDate').val();
+        var resetType = $j('.resetType :selected').val();
+        console.log(resetDate + ' >>> resetSeaon >>> '+ resetSeaon);
+        if(resetSeaon != "" && resetSeaon != 'undefined' && resetDate != "" && resetDate != 'undefined' && resetType != "" && resetType != 'undefined') {
+          var resetDateVal = new Date(resetDate);
+          console.log('resetDateVal >>> '+ resetDateVal);
+          var productName = accountName +" - "+ resetSeaon +" "+ resetDateVal.getFullYear()+ " - "+resetType;
+          console.log('productName >>>> '+ productName);
+          $j('[id*="salesPlanName"]').val(productName);
+          //storeName(productName);
+          $j('[id*="projectName"]').html(productName);
+        }
+        else  {
+            $j('[id*="projectName"]').html("");
+            $j('[id*="salesPlanName"]').val('');
+        }
+      }
+      else {
+        $j('[id*="projectName"]').html("");
+        $j('[id*="salesPlanName"]').val('');
+      }
+      validate();
+    }
+    
+    function checkProduct(){
+      $j('[id*="spacePlan"]').val('');
+      populateName();
+    }
+
+    function enableNext(){
+      $j('input[type="submit"][value="Next"]')
+        .removeProp('disabled')
+        .removeClass('btnDisabled')
+        .addClass('btnPagination');
+    }
+
+    function disableNext(){
+      $j('input[type="submit"][value="Next"]')
+        .prop('disabled',true)
+        .removeClass('btnPagination')
+        .addClass('btnDisabled');
+    }
+
+    function validate(){
+      var accountName = $j('.accountName').val();
+      if(accountName != 'undefined' && accountName != '' && accountName != null) {
+        var resetSeaon = $j('.resetSeaon').find(":selected").val(); 
+        console.log('resetSeaon >>> '+ resetSeaon);
+        var resetDate = $j('.resetDate').val();
+        var resetKickoffDate = $j('.resetKickoffDate').val();
+        var projectStartDate = $j('.projectStartDate').val();
+        var projectpurpose = $j('.projectpurpose').val();
+        var resetType = $j('resetType').find(":selected").val();
+          console.log('resetType >>> '+resetType);
+        if(resetSeaon != "" && resetSeaon != 'undefined' 
+           && resetDate != "" && resetDate != 'undefined'
+           && resetKickoffDate != "" && resetKickoffDate != 'undefined'
+           && projectStartDate != "" && projectStartDate != 'undefined'
+           && resetType != "" && resetType != 'undefined'
+           && projectpurpose != "" && projectpurpose != 'undefined') {
+          enableNext();
+        } else {
+          disableNext();
+        }
+      } else {
+        disableNext();
+      }
+    }
+
+    $j(function() {
+      var prodName = $j('[id*="prodName"]').val();
+      if(prodName != 'undefined' && prodName != '' && prodName != null) {
+        $j('[Id*="spacePlan"]').next().find('input').val(prodName);
+      }
+      validate();
+    });
+
+  </script>
+  <apex:sectionHeader title="Space Plan Reset" subtitle="Create New Space Plan" />
+  <apex:outputPanel rendered="{!$CurrentPage.parameters.Id != null}">
+    <p><i>Cloning from existing reset: </i><b><apex:outputLink target="_blank" value="/{!selectedSpacePlanTemplate.Id}"><apex:outputText value="{!selectedSpacePlanTemplate.Name}"/></apex:outputLink></b></p>
+  </apex:outputPanel>
+  <apex:form >
+    <apex:pageMessages id="pgMessages"/>
+    <apex:inputHidden value="{!newSpacePlan.Name}" id="salesPlanName" />
+    <apex:pageBlock title="Program Details">
+<!--       <apex:pageBlockButtons location="bottom" style="padding-left: 17%;">
+          <apex:commandButton action="{!step1}" value="Previous"/>
+          <apex:commandButton action="{!step3}" value="Next - Tasks"/>
+        </apex:pageBlockButtons> -->
+        <apex:pageBlockSection columns="1">
+          <apex:pageBlockSectionItem helpText="Enter in a descriptive name of the Account(s) this project is covering, e.g. Kroger Southeast or 7-11 NW Texas">
+            <apex:outputLabel value="Name of Account(s)" for="spacePlan"/>
+            <apex:inputText value="{!nameOfAccount}" styleClass="accountName" onkeyup="populateName();"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Reset Season"/>
+            <apex:inputField value="{!newSpacePlan.Reset_Season__c}" styleClass="resetSeaon" onchange="populateName();"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Reset Type"/>
+            <apex:inputField value="{!newSpacePlan.Reset_Type__c}" styleClass="resetType" onchange="populateName();"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem helpText="Enter in the Reset Date for this project">
+            <apex:outputLabel value="Reset Date"/>
+            <apex:inputField value="{!newSpacePlan.Reset_Date_US__c}" styleClass="resetDate" onchange="populateName();"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem helpText="What date will Merchandising start for this project?"> 
+            <apex:outputLabel value="Merchandising Start Date"/>
+            <apex:inputField value="{!newSpacePlan.Merchandising_Start_Date__c}" styleClass="resetKickoffDate" onchange="validate();" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem helpText="What date will this project kick off?">
+            <apex:outputLabel value="Project Start Date"/>
+            <apex:inputField value="{!newSpacePlan.Reset_Start_Date_US__c}" styleClass="projectStartDate" onchange="validate();" />
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem helpText="The name of this Project will be automatically created based on Name of Accounts, Season, Year, and Type">
+            <apex:outputLabel value="Name"/>
+            <apex:outputField value="{!newSpacePlan.Name}" id="projectName" styleClass="spacePlanNameLabel"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Project Purpose"/>
+            <apex:inputField value="{!newSpacePlan.Purpose__c}" styleClass="projectpurpose" style="width: 40%;" onkeyup="validate();" />
+          </apex:pageBlockSectionItem> 
+        </apex:pageBlockSection>
+
+      <apex:pageBlockSection columns="2" id="footer" > 
+        <apex:pageBlockSectionItem >
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >
+            <apex:outputPanel style="text-align:right" layout="block">
+                <apex:commandButton value="Cancel" styleClass="btnPagination" action="{!cancel}"/>
+                <apex:commandButton action="{!step1}" value="Previous" styleClass="btnPagination"/>
+                <apex:commandButton action="{!step3}" value="Next" styleClass="btnDisabled"/>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

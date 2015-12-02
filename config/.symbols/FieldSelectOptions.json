@@ -1,0 +1,209 @@
+{
+    "properties": [
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "objectName", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 2
+            }, 
+            "type": "String"
+        }, 
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "options", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 3
+            }, 
+            "type": "LIST"
+        }
+    ], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "FieldSelectOptions", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "objectName"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 5
+            }, 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "FieldSelectOptions", 
+            "parameters": [
+                {
+                    "type": "SObjectType", 
+                    "name": "ot"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 12, 
+                "line": 13
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "FieldSelectOptions", 
+    "tableDeclaration": {
+        "type": "FieldSelectOptions", 
+        "modifiers": [
+            "public", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 27, 
+            "line": 1
+        }, 
+        "name": "FieldSelectOptions"
+    }, 
+    "key": "01p55000000DcAtAAK", 
+    "variables": [
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 38, 
+                "line": 5
+            }, 
+            "name": "objectName"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 28, 
+                "line": 8
+            }, 
+            "name": "ot"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 13
+            }, 
+            "name": "ot"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 42, 
+                "line": 17
+            }, 
+            "name": "ot"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 18
+            }, 
+            "name": "fields"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 20
+            }, 
+            "name": "fieldNames"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 22
+            }, 
+            "name": "fn"
+        }, 
+        {
+            "type": "DescribeFieldResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 40, 
+                "line": 23
+            }, 
+            "name": "f"
+        }
+    ], 
+    "id": "01p55000000DcAtAAK", 
+    "methods": [
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "init", 
+            "parameters": [
+                {
+                    "type": "SObjectType", 
+                    "name": "ot"
+                }
+            ], 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 17
+            }, 
+            "returnType": "void", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "getOptions", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 31, 
+                "line": 49
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }
+    ]
+}

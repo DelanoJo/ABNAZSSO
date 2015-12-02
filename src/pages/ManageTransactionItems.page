@@ -1,0 +1,92 @@
+<apex:page standardController="M_Inventory_Transaction__c"
+	extensions="ManageTransactionItemCon">
+	<br />
+	<apex:outputlink value="/{!M_Inventory_Transaction__c.Id}"> {!$ObjectType.M_Inventory_Transaction__c.Label}: {!M_Inventory_Transaction__c.Name}</apex:outputlink>
+	<br />
+	<br />
+	<apex:pageBlock title="Inbound Transfer Transaction Items"
+		rendered="{!IsInBound}">
+		<br />
+		<br />
+		<apex:pageBlockButtons location="top">
+			<apex:form >
+				<apex:commandButton value="{!$Label.buzz_retail__close}"
+					action="{!Close}" />
+			</apex:form>
+		</apex:pageBlockButtons>
+
+
+		<buzz_retail:fastGrid componentId="InboundDetailsGrid"
+			nameSpace="{!nameSpace}"
+			objectName="{!$ObjectType.M_Transaction_Item__c.Name}"
+			fieldSet="{!$ObjectType.M_Transaction_Item__c.FieldSets.InboundTransferSet}"
+			fieldList="{!$ObjectType.M_Transaction_Item__c.Fields}"
+			dataLoadFunc="loadTransItemsInboundTransferSet" height="300" select="none"
+			onAfterNewRecord="loadedrecord" autoExpandColumn=""
+			allowCreate="false" allowDelete="false" allowUpdate="true"
+			allowFilter="true" allowShortHeader="true"
+			newRecordDefaults="M_Inventory_Transaction__c:{!M_Inventory_Transaction__c.Id}" />
+	</apex:pageBlock>
+
+
+	<apex:pageBlock title="Adjusment Transaction Items"
+		rendered="{!IsAdjustment}">
+		<apex:pageBlockButtons location="top">
+			<apex:form >
+				<apex:commandButton value="{!$Label.buzz_retail__close}"
+					action="{!Close}" />
+			</apex:form>
+		</apex:pageBlockButtons>
+		<br />
+		<br />
+		<buzz_retail:fastGrid componentId="AdjDetailsGrid"
+			nameSpace="{!nameSpace}"
+			objectName="{!$ObjectType.M_Transaction_Item__c.Name}"
+			fieldSet="{!$ObjectType.M_Transaction_Item__c.FieldSets.AdjustmentSet}"
+			fieldList="{!$ObjectType.M_Transaction_Item__c.Fields}"
+			dataLoadFunc="loadTransItemsAdjustmentSet" height="300" select="none"
+			onAfterNewRecord="loadedrecord" autoExpandColumn=""
+			allowCreate="false" allowDelete="false" allowUpdate="true"
+			allowFilter="true" allowShortHeader="true"
+			newRecordDefaults="M_Inventory_Transaction__c:{!M_Inventory_Transaction__c.Id}" />
+	</apex:pageBlock>
+	<apex:pageBlock title="Standard Transaction Items"
+		rendered="{!IsStandard}">
+		<br />
+		<br />
+		<apex:pageBlockButtons location="top">
+			<apex:form >
+				<apex:commandButton value="{!$Label.buzz_retail__close}"
+					action="{!Close}" />
+			</apex:form>
+		</apex:pageBlockButtons>
+
+		<buzz_retail:fastGrid componentId="StdDetailsGrid"
+			nameSpace="{!nameSpace}"
+			objectName="{!$ObjectType.M_Transaction_Item__c.Name}"
+			fieldSet="{!$ObjectType.M_Transaction_Item__c.FieldSets.StandardSet}"
+			fieldList="{!$ObjectType.M_Transaction_Item__c.Fields}"
+			dataLoadFunc="loadTransItemsStandardSet" height="300" select="none"
+			onAfterNewRecord="loadedrecord" autoExpandColumn=""
+			allowCreate="false" allowDelete="false" allowUpdate="true"
+			allowFilter="true" allowShortHeader="true"
+			newRecordDefaults="M_Inventory_Transaction__c:{!M_Inventory_Transaction__c.Id}" />
+
+	</apex:pageBlock>
+
+	<script type="text/javascript">
+        function loadTransItemsInboundTransferSet(handler) {
+               ManageTransactionItemCon.loadTransItems('{!M_Inventory_Transaction__c.Id}', 'InboundTransfer', handler);
+        }
+        function loadTransItemsAdjustmentSet(handler) {
+               ManageTransactionItemCon.loadTransItems('{!M_Inventory_Transaction__c.Id}', 'Adjustment', handler);
+        }
+        function loadTransItemsStandardSet(handler) {
+               ManageTransactionItemCon.loadTransItems('{!M_Inventory_Transaction__c.Id}', 'Standard', handler);
+        }
+
+        function loadedrecord() {
+        }
+    </script>
+
+</apex:page>

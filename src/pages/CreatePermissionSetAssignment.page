@@ -1,0 +1,19 @@
+<apex:page standardController="Permission_Set_Assignment_Rules__c" extensions="CreatePermissionSetAssignmentController" 
+			showHeader="true" sidebar="true">
+	<apex:form>
+	<apex:sectionHeader title="New Permission Set Assignment Rule" subtitle="New Permission Set Assignment Rule" />
+		<apex:pageBlock title="Permission Set Assignment Rule">
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton action="{!save}" value="Save"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Key Information">
+				<apex:pageBlockSectionItem>
+					<apex:outputLabel value="{!$ObjectType.Permission_Set_Assignment_Rules__c.fields.Permission_Set__c.label}" />
+					<apex:selectList value="{!permissionSetId}" size="1">
+						<apex:selectOptions value="{!permissionSets}"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

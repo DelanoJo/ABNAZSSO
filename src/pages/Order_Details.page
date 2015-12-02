@@ -1,0 +1,46 @@
+<apex:page standardController="M_Order_sigcap_Header__c"
+	extensions="OrderDetailCon">
+
+	<apex:pageBlock title="Orders" rendered="{!IsOrder}">
+		<apex:form >
+			<apex:commandButton action="loadedrecord()" value="Add Products"
+				id="AddProducts" />
+		</apex:form>
+		<buzz_retail:fastGrid componentId="OrderDetailsGrid"
+			nameSpace="{!nameSpace}"
+			objectName="{!$ObjectType.M_Order_Detail__c.Name}"
+			fieldSet="{!$ObjectType.M_Order_Detail__c.FieldSets.OrderDetail}"
+			fieldList="{!$ObjectType.M_Order_Detail__c.Fields}"
+			dataLoadFunc="loadOrderDetails" height="300" select="multi"
+			onAfterNewRecord="loadedrecord" autoExpandColumn=""
+			allowCreate="false" allowDelete="true" allowUpdate="true"
+			allowFilter="true" allowShortHeader="true"
+			newRecordDefaults="M_Order__c:{!M_Order_sigcap_Header__c.Id}" />
+	</apex:pageBlock>
+
+	<apex:pageBlock title="Returns" rendered="{!IsReturn}">
+		<apex:form >
+			<apex:commandButton action="loadedrecord()" value="Add Products"
+				id="AddProducts" />
+		</apex:form>
+		<buzz_retail:fastGrid componentId="ReturnDetailsGrid"
+			nameSpace="{!nameSpace}"
+			objectName="{!$ObjectType.M_Order_Detail__c.Name}"
+			fieldSet="{!$ObjectType.M_Order_Detail__c.FieldSets.ReturnDetail}"
+			fieldList="{!$ObjectType.M_Order_Detail__c.Fields}"
+			dataLoadFunc="loadOrderDetails" height="300" select="multi"
+			onAfterNewRecord="loadedrecord" autoExpandColumn=""
+			allowCreate="false" allowDelete="true" allowUpdate="true"
+			allowFilter="true" allowShortHeader="true"
+			newRecordDefaults="M_Order__c:{!M_Order_sigcap_Header__c.Id}" />
+	</apex:pageBlock>
+
+	<script type="text/javascript">
+        function loadOrderDetails(handler) {
+               OrderDetailCon.loadOrderDetails('{!M_Order_sigcap_Header__c.Id}',handler);
+        }
+        function loadedrecord() {
+        }
+    </script>
+
+</apex:page>

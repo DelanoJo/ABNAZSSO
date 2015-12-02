@@ -1,0 +1,16 @@
+<apex:page showHeader="true" sidebar="true">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" />
+    <script type="text/javascript">
+    	var j$ = jQuery.noConflict();
+    </script>
+
+    <c:MRAccountProductComponent p_recordId="{!$CurrentPage.parameters.Id}"
+        p_initialAccountId="{!$CurrentPage.parameters.AccountId}"
+        p_fieldsCSV="Pre_Sell_Commitment__c,Pricing_Alignment__c,Recommended_Volume_Cases__c,Forecast_Updated__c"
+        p_accountField="Wholesaler"
+        p_pageTitle="Wholesaler Commitment"
+        p_childObject="MR_Wholesaler_Product_Commitment__c"
+        p_accountType="Wholesaler"
+        p_rerenderJS=""/>
+
+</apex:page>
