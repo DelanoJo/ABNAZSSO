@@ -7,7 +7,7 @@ public with sharing class CreatePermissionSetAssignmentController {
 	public CreatePermissionSetAssignmentController(ApexPages.StandardController controller) {
 		psa = new Permission_Set_Assignment_Rules__c();
 		permissionSets = new SelectOption[]{};
-		for(PermissionSet ps : [SELECT ID, Label FROM PermissionSet WHERE NOT (Label LIKE '00e%') ORDER BY Label ASC]){
+		for(PermissionSet ps : [SELECT ID, Label FROM PermissionSet WHERE UserLicenseId = null ORDER BY Label ASC]){
 			permissionSets.add(new SelectOption(ps.Id, ps.Label));
 		}
 	}

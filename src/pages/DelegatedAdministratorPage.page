@@ -1,0 +1,64 @@
+<apex:page showHeader="true" sidebar="true" controller="DelegatedAdministratorController" action="{!init}">
+	<apex:form id="theForm">
+        <apex:actionstatus id="Working">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color:#fbfbfb; height:100%; opacity:0.65; width:100%;">
+                    <div class="waitingHolder" style="top: 84px; width: 91px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Working..." />
+                        <span class="waitingDescription">Working...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+		<apex:sectionHeader title="" subtitle="Administer Users" />
+		<apex:pageBlock title="">
+			<apex:messages/>
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton action="{!init}" value="Refresh" status="Working"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Contacts and Users for My Account">
+				<apex:pageBlockTable id="users" value="{!contactUsers}" var="row">
+		            <apex:column headerValue="User Status">
+		            	<apex:outputText value="{!row.userOrContact}"/>
+		            </apex:column>
+		            <apex:column headerValue="Username">
+		            	<apex:outputText value="{!row.uName}"/>
+		            </apex:column>
+		            <apex:column headerValue="First Name">
+		            	<apex:outputField value="{!row.con.FirstName}"/>
+		            </apex:column>
+		            <apex:column headerValue="Last Name">
+		            	<apex:outputField value="{!row.con.LastName}"/>
+		            </apex:column>
+		            <apex:column headerValue="Active">
+		            	<apex:outputText value="{!row.isActive}"/>
+		            </apex:column>
+		            <apex:column headerValue="Action">
+		            	<apex:outputPanel >
+			            	<apex:commandButton action="{!resetUserPassword}" immediate="true" reRender="theForm" value="Reset Password" status="Working"  rendered="{!row.isUser}">
+			            		<apex:param name="contactId" value="{!row.con.Id}" assignTo="{!contactIdToModify}"/>
+			            	</apex:commandButton>
+			            	<apex:commandButton action="{!createUser}" immediate="true" reRender="theForm" value="Create User" status="Working" rendered="{!IF(row.userOrContact == 'Contact Only', true, false)}">
+			            		<apex:param name="contactId" value="{!row.con.Id}" assignTo="{!contactIdToModify}"/>
+			            	</apex:commandButton>
+			            	<apex:commandButton action="{!changeUserActiveStatus}" immediate="true" reRender="theForm" value="Activate" status="Working" rendered="{!IF(row.userOrContact == 'User' && row.isActive == false, true, false)}">
+			            		<apex:param name="contactId" value="{!row.con.Id}" assignTo="{!contactIdToModify}"/>
+			            	</apex:commandButton>
+			            	<apex:commandButton action="{!changeUserActiveStatus}" immediate="true" reRender="theForm" value="Deactivate" status="Working" rendered="{!IF(row.userOrContact == 'User' && row.isActive == true, true, false)}">
+			            		<apex:param name="contactId" value="{!row.con.Id}" assignTo="{!contactIdToModify}"/>
+			            	</apex:commandButton>
+		            	</apex:outputPanel>
+		            </apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="New Contact">
+		            	<apex:inputField value="{!newContact.FirstName}"/>
+		            	<apex:inputField value="{!newContact.LastName}"/>
+		            	<apex:inputText label="Email" value="{!conEmail}"/>
+		            	<apex:pageBlockSectionItem/>
+			            	<apex:commandButton action="{!createContact}" immediate="true" reRender="theForm" value="Create Contact" status="Working">
+			            	</apex:commandButton>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>
