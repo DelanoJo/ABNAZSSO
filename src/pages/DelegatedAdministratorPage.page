@@ -1,5 +1,5 @@
 <apex:page showHeader="true" sidebar="true" controller="DelegatedAdministratorController" action="{!init}">
-	<apex:form id="theForm">
+
         <apex:actionstatus id="Working">
             <apex:facet name="start">
                 <div class="waitingSearchDiv" id="el_loading" style="background-color:#fbfbfb; height:100%; opacity:0.65; width:100%;">
@@ -10,32 +10,97 @@
                 </div>
             </apex:facet>
         </apex:actionstatus>
+
+	<apex:form id="theForm">
+    <apex:stylesheet value="{!URLFOR($Resource.DataTableCSS, 'css/jquery.dataTables.css')}"/>
+	<style type="text/css">
+	.sorting {
+	    background: #f2f3f3 url('{! URLFOR($Resource.DataTablesIMG, 'images/sort_both.png') }') no-repeat center right !important;
+	    padding-right: 20px !important;
+	}
+	.sorting_asc {
+	    background: #f2f3f3 url('{! URLFOR($Resource.DataTablesIMG, 'images/sort_asc.png') }') no-repeat center right !important;
+	    padding-right: 20px !important;
+	}
+	.sorting_desc {
+	    background: #f2f3f3 url('{! URLFOR($Resource.DataTablesIMG, 'images/sort_desc.png') }') no-repeat center right !important;
+	    padding-right: 20px !important;
+	}
+	.sorting_asc_disabled {
+	    background: #f2f3f3 url('{! URLFOR($Resource.DataTablesIMG, 'images/sort_asc_disabled.png') }') no-repeat center right !important;
+	    padding-right: 20px !important;
+	}
+	.sorting_desc_disabled {
+	    background: #f2f3f3 url('{! URLFOR($Resource.DataTablesIMG, 'images/sort_desc_disabled.png') }') no-repeat center right !important;
+	    padding-right: 20px !important;
+	}
+	table.dataTable tr.odd { background-color: white; }
+	table.dataTable tr.even { background-color: white; }
+	table.dataTable tr.odd td.sorting_1 { background-color: white; }
+	table.dataTable tr.odd td.sorting_2 { background-color: white; }
+	table.dataTable tr.odd td.sorting_3 { background-color: white; }
+	table.dataTable tr.even td.sorting_1 { background-color: white; }
+	table.dataTable tr.even td.sorting_2 { background-color: white; }
+	table.dataTable tr.even td.sorting_3 { background-color: white; }
+	.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+	    padding: 3px;
+	}
+	</style>
 		<apex:sectionHeader title="" subtitle="Administer Users" />
-		<apex:pageBlock title="">
-			<apex:messages/>
+		<apex:pageBlock id="userBlock">
+			<apex:messages />
 			<apex:pageBlockButtons location="top">
 				<apex:commandButton action="{!init}" value="Refresh" status="Working"/>
 			</apex:pageBlockButtons>
+			<apex:pageBlockButtons location="bottom">
+			</apex:pageBlockButtons>
 			<apex:pageBlockSection title="Contacts and Users for My Account">
-				<apex:pageBlockTable id="users" value="{!contactUsers}" var="row">
-		            <apex:column headerValue="User Status">
+				<apex:pageBlockTable id="users" value="{!contactUsers}" var="row" styleClass="dataTable">
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.Account.Fields.Name.Label}" />
+		                </apex:facet>
+		            	<apex:outputText value="{!row.accName}"/>
+		            </apex:column>
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="User Status"/>
+		                </apex:facet>
 		            	<apex:outputText value="{!row.userOrContact}"/>
 		            </apex:column>
-		            <apex:column headerValue="Username">
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.User.Fields.Username.Label}" />
+		                </apex:facet>
 		            	<apex:outputText value="{!row.uName}"/>
 		            </apex:column>
-		            <apex:column headerValue="First Name">
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.Contact.Fields.Email.Label}" />
+		                </apex:facet>
+		            	<apex:outputText value="{!row.uEmail}"/>
+		            </apex:column>
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.Account.Fields.Name.Label}" />
+		                </apex:facet>
 		            	<apex:outputField value="{!row.con.FirstName}"/>
 		            </apex:column>
-		            <apex:column headerValue="Last Name">
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.Contact.Fields.LastName.Label}" />
+		                </apex:facet>
 		            	<apex:outputField value="{!row.con.LastName}"/>
 		            </apex:column>
-		            <apex:column headerValue="Active">
+		            <apex:column>
+		                <apex:facet name="header">
+		                    <apex:outputText styleClass="header" value="{!$ObjectType.User.Fields.IsActive.Label}" />
+		                </apex:facet>
 		            	<apex:outputText value="{!row.isActive}"/>
 		            </apex:column>
 		            <apex:column headerValue="Action">
 		            	<apex:outputPanel >
-			            	<apex:commandButton action="{!resetUserPassword}" immediate="true" reRender="theForm" value="Reset Password" status="Working"  rendered="{!row.isUser}">
+			            	<apex:commandButton action="{!resetUserPassword}" immediate="true" reRender="theForm" value="Reset Password" status="Working"  rendered="{!IF(row.isUser == true && row.isActive == true, true, false)}">
 			            		<apex:param name="contactId" value="{!row.con.Id}" assignTo="{!contactIdToModify}"/>
 			            	</apex:commandButton>
 			            	<apex:commandButton action="{!createUser}" immediate="true" reRender="theForm" value="Create User" status="Working" rendered="{!IF(row.userOrContact == 'Contact Only', true, false)}">
@@ -52,13 +117,38 @@
 				</apex:pageBlockTable>
 			</apex:pageBlockSection>
 			<apex:pageBlockSection title="New Contact">
-		            	<apex:inputField value="{!newContact.FirstName}"/>
-		            	<apex:inputField value="{!newContact.LastName}"/>
-		            	<apex:inputText label="Email" value="{!conEmail}"/>
-		            	<apex:pageBlockSectionItem/>
-			            	<apex:commandButton action="{!createContact}" immediate="true" reRender="theForm" value="Create Contact" status="Working">
-			            	</apex:commandButton>
+            	<apex:inputText label="First Name" value="{!conFirstName}"/>
+            	<apex:inputText label="Last Name" value="{!conLastName}"/>
+            	<apex:pageBlockSectionItem>
+            		<apex:outputLabel value="Account"/>
+	            	<apex:selectList value="{!accId}" multiselect="false">
+	            		<apex:selectOptions value="{!accOptions}"/>
+	            	</apex:selectList> 
+            	</apex:pageBlockSectionItem>
+            	<apex:inputText label="Email" value="{!conEmail}"/>
 			</apex:pageBlockSection>
+				<div align="center" draggable="false" >
+	            	<apex:commandButton action="{!createContact}" immediate="false" reRender="theForm" value="Create Contact" status="Working" style="margin:auto;">
+	            	</apex:commandButton>
+            	</div>	
+            <!-- Uncomment the following to enable new retailer functionality-->
+			<!--apex:pageBlockSection title="New Retailer">
+            	<apex:inputText label="Name" value="{!newAccount.Name}"/>
+            	<apex:pageBlockSectionItem />
+			</apex:pageBlockSection>
+				<div align="center" draggable="false" >
+	            	<apex:commandButton action="{!createAccount}" immediate="false" reRender="theForm" value="Create Retailer" status="Working" style="margin:auto;">
+	            	</apex:commandButton>
+            	</div-->
 		</apex:pageBlock>
+
+		<script type="text/javascript" language="javascript" src="{!URLFOR($Resource.DataTablesJS, 'js/jquery.js')}"></script>
+		<script type="text/javascript" language="javascript" src="{!URLFOR($Resource.DataTablesJS, 'js/jquery.dataTables.js')}"></script>
+		<script type="text/javascript" language="javascript">
+		var j$ = jQuery.noConflict();
+		j$('table.dataTable').dataTable({
+		    sPaginationType: "full_numbers"
+		});
+		</script>
 	</apex:form>
 </apex:page>

@@ -4,6 +4,86 @@
 		"selected_items":
 		[
 			[
+				"int",
+				"PUBLIC init() 	void"
+			],
+			[
+				"acc",
+				"PUBLIC accOptions	LIST"
+			],
+			[
+				"con",
+				"PUBLIC conEmail	String"
+			],
+			[
+				"Delegated",
+				"DelegatedAdministratorController	[Custom Apex Class]"
+			],
+			[
+				"pageb",
+				"apex:pageBlockSectionItem"
+			],
+			[
+				"selectOption",
+				"apex:selectOptions"
+			],
+			[
+				"ne",
+				"newAccount"
+			],
+			[
+				"outp",
+				"apex:outputText"
+			],
+			[
+				"page",
+				"apex:pageBlockSectionItem"
+			],
+			[
+				"out",
+				"apex:outputText"
+			],
+			[
+				"ta",
+				"apex:pageBlockTable"
+			],
+			[
+				"contactUser",
+				"contactUserInfo"
+			],
+			[
+				"Permission",
+				"Permission_Set_Assignment_Rules__c"
+			],
+			[
+				"se",
+				"apex:selectOptions"
+			],
+			[
+				"sele",
+				"apex:selectList"
+			],
+			[
+				"pabe",
+				"apex:pageBlockSectionItem"
+			],
+			[
+				"pageBloc",
+				"apex:pageBlockTable"
+			],
+			[
+				"pageBlo",
+				"apex:pageBlockTable"
+			],
+			[
+				"comm",
+				"apex:commandButton"
+			],
+			[
+				"show",
+				"showChat	(Boolean)"
+			],
+			[
 				"q",
 				"query"
 			],
@@ -204,20 +284,12 @@
 				"apex:inputField"
 			],
 			[
-				"out",
-				"apex:outputLabel"
-			],
-			[
 				"render",
 				"renderEventInfo"
 			],
 			[
 				"pageBlock",
 				"apex:pageBlockSection"
-			],
-			[
-				"outp",
-				"apex:outputLink"
 			],
 			[
 				"comd",
@@ -286,10 +358,6 @@
 			[
 				"conta",
 				"contactUser1"
-			],
-			[
-				"con",
-				"controllerC2"
 			],
 			[
 				"BA",
@@ -446,21 +514,13 @@
 			[
 				"JS",
 				"JSON	[Standard Apex Class]"
-			],
-			[
-				"Accoun",
-				"AccountId"
-			],
-			[
-				"Account",
-				"AccountExists"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/classes/GroupRuleMangagerController.cls",
+			"file": "src/classes/GroupRuleManagerController.cls",
 			"settings":
 			{
 				"buffer_size": 6858,
@@ -471,7 +531,23 @@
 			"file": "src/classes/FieldSelectOptions.cls",
 			"settings":
 			{
-				"buffer_size": 2027,
+				"buffer_size": 1881,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/CreatePermissionSetAssignmentController.cls",
+			"settings":
+			{
+				"buffer_size": 820,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/CreatePermissionSetAssignment.page",
+			"settings":
+			{
+				"buffer_size": 912,
 				"line_ending": "Unix"
 			}
 		},
@@ -479,15 +555,23 @@
 			"file": "src/classes/PermissionSetAssignmentUtils.cls",
 			"settings":
 			{
-				"buffer_size": 3237,
+				"buffer_size": 3589,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/triggers/PermimissionSetTrigger.trigger",
+			"file": "src/triggers/PermissionSetAssignmentRulesTrigger.trigger",
 			"settings":
 			{
-				"buffer_size": 3066,
+				"buffer_size": 2315,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/AutomatedBreakCaseBatch.cls",
+			"settings":
+			{
+				"buffer_size": 1315,
 				"line_ending": "Unix"
 			}
 		},
@@ -503,7 +587,23 @@
 			"file": "src/classes/Operators.cls",
 			"settings":
 			{
-				"buffer_size": 10617,
+				"buffer_size": 10619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/GroupRuleManager.page",
+			"settings":
+			{
+				"buffer_size": 2274,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/ChildGroupRules.page",
+			"settings":
+			{
+				"buffer_size": 670,
 				"line_ending": "Unix"
 			}
 		},
@@ -511,7 +611,39 @@
 			"file": "src/classes/QueryBuilder.cls",
 			"settings":
 			{
-				"buffer_size": 8127,
+				"buffer_size": 8155,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/DelegatedAdministratorPage.page",
+			"settings":
+			{
+				"buffer_size": 8495,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/DelegatedAdministratorControllerTest.cls",
+			"settings":
+			{
+				"buffer_size": 4194,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/TestDataUtil.cls",
+			"settings":
+			{
+				"buffer_size": 1739,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/DelegatedAdministratorController.cls",
+			"settings":
+			{
+				"buffer_size": 8839,
 				"line_ending": "Unix"
 			}
 		}
@@ -557,10 +689,24 @@
 		"/Users/Delano/Documents/workspace/AB NAZSSO",
 		"/Users/Delano/Documents/workspace/AB NAZSSO/src",
 		"/Users/Delano/Documents/workspace/AB NAZSSO/src/classes",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/pages",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/staticresources",
 		"/Users/Delano/Documents/workspace/AB NAZSSO/src/triggers"
 	],
 	"file_history":
 	[
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/pages/DelegatedAdministratorPage.page-meta.xml",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/AB NAZSSO.sublime-settings",
+		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/MavensMate/mavensmate.sublime-settings",
+		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/classes/AttachmentCascadeBatchJob.cls",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/pages/DelegatedAdminInterface.page",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/components/MIlestone1_Calendar_Full.component",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/classes/Milestone1_repeatCon.cls",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/triggers/PRM_VMEM_PermissionSetAssignmentRules.trigger",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/triggers/PermimissionSetTrigger.trigger",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/triggers/Permission_Set_Assignment_Rules__c.trigger",
+		"/Users/Delano/Documents/workspace/AB NAZSSO/src/classes/GroupRuleMangagerController.cls",
 		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/MDFTests.cls-meta.xml",
 		"/Users/Delano/Documents/workspace/VMEM Full/src/triggers/updateBudget_FundRequest.trigger",
 		"/Users/Delano/Documents/workspace/VMEM Full/src/classes/MDFTriggerTests.cls-meta.xml",
@@ -628,9 +774,7 @@
 		"/Users/Delano/Documents/Mobile-Design-Templates-master 2/common/js/jquery.touchwipe.min.js",
 		"/Users/Delano/Documents/workspace/MProduction/src/triggers/ClientPriorityList.trigger",
 		"/Users/Delano/Documents/workspace/MProduction/src/classes/ClientPriorityList.cls",
-		"/Users/Delano/Documents/workspace/MProduction/src/classes/Page1ProjectUtils.cls",
-		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/MavensMate/mavensmate.sublime-settings",
-		"/Users/Delano/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings"
+		"/Users/Delano/Documents/workspace/MProduction/src/classes/Page1ProjectUtils.cls"
 	],
 	"find":
 	{
@@ -638,9 +782,15 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 179.0,
 		"where_history":
 		[
+			"<current file>",
+			"<current file>,<open files>,<open folders>",
+			"<current file>,<open files>",
+			"<current file>",
+			"<current file>,<open files>",
+			"<current file>",
 			"<current file>,<open files>,<open folders>",
 			"<current file>",
 			"<current file>,<open folders>",
@@ -664,6 +814,75 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jQueryDataTablesZip",
+			"media/",
+			"/media",
+			">\n",
+			"newaccount",
+			"logging",
+			"condition",
+			"Milestone1_repeatCon",
+			"var=",
+			"new id",
+			"Database.executeBatch",
+			"test3@dolby.com.dev1",
+			"testCalculate",
+			"Partner_constraint",
+			"PRM_VMEM_PermissionSetAssignmentRules",
+			"testOpportunitySubmitForExtension",
+			"permission_set_assignment",
+			"getData1",
+			"VMEM Customer Community User",
+			"\n        Profile communityProfile =[select id from Profile where Name LIKE '%Partner - Reseller%' limit 1];   ",
+			"\n        Account acc = TestDataUtil.createAccounts( 1, true, new Map<string, object>{ 'Industry' => 'test' } )[0];\n        Contact con = TestDataUtil.createContacts( 1, true, new Map<string, object>{ 'AccountId' => acc.Id } )[0];\n        Profile communityProfile =[select id from Profile where Name LIKE '%VMEM Customer Community User%' limit 1];    ",
+			"fundutils",
+			"fundutile",
+			"from permissionset",
+			"testPermissionSetAssignment1",
+			"BatchUpdateGroupAssignmentRules",
+			"testPermissionSetAssignment1",
+			"testing.com",
+			"prm ",
+			"prm vmem",
+			"PRM_VMEM_Group_Rule_Trigger",
+			"partnerMakesDeal",
+			"testOpportunitySubmitForExtension",
+			"ContactTriggerUtility",
+			"partnerCreatesFundRequest",
+			"testPopulateChannelAccountManager",
+			"DealRegAutocomplete",
+			"partnerCreatesFundRequest",
+			"PRM_VMEM_CustomerAssetRenewalContTest",
+			"testGroupRule2",
+			"PRM_VMEM_LeadTriggerTest",
+			"AttachmentSaver",
+			"GroupSettings",
+			"BatchUpdatePermissionAssignments",
+			"on permi",
+			"on contact",
+			"CreatePermissionSetAssignmentController",
+			"Permission_Set_Name__c",
+			"contactIds",
+			"contact",
+			"getQuery",
+			"setGroups",
+			"contact",
+			"ContactId",
+			"Contact",
+			"checkbox",
+			"Contact",
+			"trigger.new[i].RecordTypeId == rt.Id &&",
+			"PRM_VMEM_PermissionSetAssignmentRules",
+			"Contact",
+			"groupAssignId",
+			"UserOrPermissionSetId",
+			"GroupId",
+			"GroupMember",
+			"groupMembers",
+			"GroupRuleMangagerController",
+			"GroupRuleManagerController",
+			"GroupRuleManagerController\n",
+			"tooling",
 			"[",
 			"Group_Permission_Set_Name__c",
 			"Permission_Set__c",
@@ -722,76 +941,7 @@
 			"Approved_Requests__c",
 			"Approved_Requests__c =",
 			"Approved_Requests__c=",
-			"Approved_Requests__c =",
-			"Approved_Requests__c",
-			"Amount__c",
-			"Estimated_PO_Timeframe__c",
-			"estimated",
-			"select phone",
-			"RecordTypeId",
-			".RecordType",
-			".Status",
-			"record",
-			"'Fund Request'",
-			".RecordTypeId",
-			"afterMDFInsert",
-			"beforemdfInsert",
-			"RecordType",
-			"recordt",
-			"record",
-			"upload",
-			".body",
-			".bodyj",
-			".body",
-			"aftermdfInsert",
-			"autoSubmitmdfsForApproval",
-			"beforemdfInsert",
-			"approval",
-			".status",
-			"hide field from edit view",
-			".status",
-			"lead",
-			"hide",
-			"Status",
-			"status",
-			"lead_stau",
-			"outputlink",
-			"pdf",
-			"M",
-			"QueryResult",
-			"records",
-			"returnURL{",
-			"new",
-			"returnurl",
-			"returl",
-			"urlfor",
-			"on Permission_Set_Assignment_Rules__c",
-			"addfields",
-			"Group_Rule__c",
-			"Assignment_Rule",
-			"RecordTypeId",
-			"random",
-			"targetField1",
-			"DealRegAutocompleteField",
-			"Fund_Request__c",
-			"message",
-			"claimWithAttachments()",
-			"renderattachments",
-			"renderattach",
-			"renderatt",
-			"addFields",
-			"upsert",
-			"insert",
-			"insert ",
-			"from at",
-			"attachment",
-			"insert",
-			"claim",
-			"goback",
-			"gonext",
-			"controller",
-			"testSetup",
-			"starttest"
+			"Approved_Requests__c ="
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -799,6 +949,17 @@
 		"regex": false,
 		"replace_history":
 		[
+			"DataTables",
+			"",
+			"media",
+			"PermissionSets",
+			"userIds",
+			"",
+			"permissionId",
+			"AssigneeId",
+			"PermissionSetId",
+			"PermissionSetAssignment",
+			"permissionSetAssignments",
 			"CommunityDefaults__c",
 			"communityUserId",
 			"String communityUserId",
@@ -828,12 +989,12 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 13,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/classes/GroupRuleMangagerController.cls",
+					"file": "src/classes/GroupRuleManagerController.cls",
 					"semi_transient": false,
 					"settings":
 					{
@@ -844,8 +1005,390 @@
 						"selection":
 						[
 							[
-								1453,
-								1453
+								3115,
+								3115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1698.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/FieldSelectOptions.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1379,
+								1379
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/CreatePermissionSetAssignmentController.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								689,
+								689
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/pages/CreatePermissionSetAssignment.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								118
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/classes/PermissionSetAssignmentUtils.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3589,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								623
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/triggers/PermissionSetAssignmentRulesTrigger.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1224,
+								1224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/classes/AutomatedBreakCaseBatch.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								623
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/classes/BatchUpdatePermissionAssignments.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								792,
+								800
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/classes/Operators.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								703,
+								712
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/pages/GroupRuleManager.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2190,
+								1001
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/pages/ChildGroupRules.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/classes/QueryBuilder.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3336,
+								3336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1272.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/pages/DelegatedAdministratorPage.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6698,
+								7149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1335.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/classes/DelegatedAdministratorControllerTest.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4194,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3835,
+								3835
 							]
 						],
 						"settings":
@@ -860,110 +1403,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/classes/FieldSelectOptions.cls",
+					"buffer": 14,
+					"file": "src/classes/TestDataUtil.cls",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2027,
+						"buffer_size": 1739,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								517,
-								517
+								405,
+								405
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/classes/PermissionSetAssignmentUtils.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3237,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1373,
-								1373
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/triggers/PermimissionSetTrigger.trigger",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3066,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1681,
-								1681
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/classes/BatchUpdatePermissionAssignments.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1020,
-								1020
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -973,59 +1431,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/classes/Operators.cls",
+					"buffer": 15,
+					"file": "src/classes/DelegatedAdministratorController.cls",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10617,
+						"buffer_size": 8839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								767,
-								767
+								6933,
+								6933
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/classes/QueryBuilder.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8127,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								764,
-								764
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1064,11 +1496,15 @@
 	"menu_visible": true,
 	"output.MavensMate-OutputPanel":
 	{
-		"height": 112.0
+		"height": 439.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
 	},
 	"pinned_build_system": "",
 	"project": "AB NAZSSO.sublime-project",
@@ -1112,7 +1548,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 301.0,
+	"side_bar_width": 243.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

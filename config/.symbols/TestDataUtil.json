@@ -1,0 +1,326 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [], 
+    "namespace": null, 
+    "name": "TestDataUtil", 
+    "tableDeclaration": {
+        "type": "TestDataUtil", 
+        "modifiers": [
+            "public", 
+            "testMethod", 
+            "with sharing"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 28, 
+            "line": 5
+        }, 
+        "name": "TestDataUtil"
+    }, 
+    "key": "01p55000000DlqPAAS", 
+    "variables": [
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 50, 
+                "line": 9
+            }, 
+            "name": "numToInsert"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 70, 
+                "line": 9
+            }, 
+            "name": "doInsert"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 99, 
+                "line": 9
+            }, 
+            "name": "nameValue"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 10
+            }, 
+            "name": "users"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 11
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "User", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 18, 
+                "line": 12
+            }, 
+            "name": "u"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 13
+            }, 
+            "name": "key"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 56, 
+                "line": 26
+            }, 
+            "name": "numToInsert"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 76, 
+                "line": 26
+            }, 
+            "name": "doInsert"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 105, 
+                "line": 26
+            }, 
+            "name": "nameValue"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 27
+            }, 
+            "name": "accounts"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 28
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Account", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 29
+            }, 
+            "name": "a"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 30
+            }, 
+            "name": "key"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 56, 
+                "line": 44
+            }, 
+            "name": "numToInsert"
+        }, 
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 76, 
+                "line": 44
+            }, 
+            "name": "doInsert"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 105, 
+                "line": 44
+            }, 
+            "name": "nameValue"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 23, 
+                "line": 45
+            }, 
+            "name": "contacts"
+        }, 
+        {
+            "type": "Integer", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 46
+            }, 
+            "name": "i"
+        }, 
+        {
+            "type": "Contact", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 47
+            }, 
+            "name": "a"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 24, 
+                "line": 48
+            }, 
+            "name": "key"
+        }
+    ], 
+    "id": "01p55000000DlqPAAS", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createUsers", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numToInsert"
+                }, 
+                {
+                    "type": "Boolean", 
+                    "name": "doInsert"
+                }, 
+                {
+                    "type": "Map", 
+                    "name": "nameValue"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 30, 
+                "line": 9
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createAccounts", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numToInsert"
+                }, 
+                {
+                    "type": "Boolean", 
+                    "name": "doInsert"
+                }, 
+                {
+                    "type": "Map", 
+                    "name": "nameValue"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 26
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "createContacts", 
+            "parameters": [
+                {
+                    "type": "Integer", 
+                    "name": "numToInsert"
+                }, 
+                {
+                    "type": "Boolean", 
+                    "name": "doInsert"
+                }, 
+                {
+                    "type": "Map", 
+                    "name": "nameValue"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 33, 
+                "line": 44
+            }, 
+            "returnType": "LIST", 
+            "type": null
+        }
+    ]
+}

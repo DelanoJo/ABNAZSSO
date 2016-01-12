@@ -1,12 +1,12 @@
 {
     "username": "delano.johnson@perficient.com.nazsso", 
+    "environment": "sandbox", 
     "project_name": "AB NAZSSO", 
+    "workspace": "/Users/Delano/Documents/workspace", 
     "org_url": "", 
     "namespace": "", 
-    "metadata_container": "1dc550000005z9nAAA", 
-    "environment": "sandbox", 
-    "workspace": "/Users/Delano/Documents/workspace", 
     "id": "DHZFZUVVZYYS0TTHNWPZQXJSASHG5XVF", 
+    "metadata_container": "1dc550000006FvOAAU", 
     "subscription": [
         "ApexClass", 
         "ApexComponent", 
